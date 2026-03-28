@@ -129,3 +129,20 @@ detection/visual/
 trash/
 setr/
 swin/
+
+
+# Pesi dei modelli e Checkpoint
+*.pth
+*.pt
+*.h5
+*.onnx
+checkpoints/
+weights/
+
+# Dataset e file zippati
+data/
+dataset/
+datasets/
+*.zip
+*.tar.gz
+*.csv
