@@ -113,7 +113,7 @@ data = dict(
             dict(type='Collect', keys=['img', 'gt_semantic_seg'])
         ],
         split=
-        '/home/fede/ViT-Adapter/segmentation/mslesseg_folds_mstype/fold_1/train.txt',
+        '/home/jacopo/Git/ViT-Adapter/segmentation/mslesseg_folds_mstype/fold_1/train.txt',
         img_suffix='.png',
         seg_map_suffix='.png',
         classes=('background', 'lesion'),
@@ -142,7 +142,7 @@ data = dict(
                 ])
         ],
         split=
-        '/home/fede/ViT-Adapter/segmentation/mslesseg_folds_mstype/fold_1/val.txt',
+        '/home/jacopo/Git/ViT-Adapter/segmentation/mslesseg_folds_mstype/fold_1/val.txt',
         img_suffix='.png',
         seg_map_suffix='.png',
         classes=('background', 'lesion'),
