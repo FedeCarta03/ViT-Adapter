@@ -6,7 +6,7 @@ _base_ = [
 
 # --- CONFIGURAZIONE DATASET ---
 dataset_type = 'SklearnMetricsDataset'
-data_root = 'data_medical/PolypGen'   # Assicurati che la cartella sia qui
+data_root = 'data_medical/27919209'   # Assicurati che la cartella sia qui
 
 # Normalizzazione standard (la stessa di ImageNet)
 img_norm_cfg = dict(
@@ -57,9 +57,9 @@ data = dict(
     train=dict(
         type=dataset_type,
         data_root=data_root,
-        img_dir='img_dir/train',
-        ann_dir='masks_dir_fixed/train',
-        split='img_fold/fold_1/train.txt',
+        img_dir='MSLesSeg_Dataset_PNG/train',
+        ann_dir='MSLesSeg_Dataset_PNG_Fixed/train',
+        split='mslesseg_fold_edss/fold_1/train.txt',
         img_suffix='.png',      # Cerca i PNG
         seg_map_suffix='.png',  # Maschere PNG
         pipeline=train_pipeline,
@@ -69,9 +69,9 @@ data = dict(
     val=dict(
         type=dataset_type,
         data_root=data_root,
-        img_dir='img_dir/train',
-        ann_dir='masks_dir_fixed/train',
-        split='img_fold/fold_1/val.txt',
+        img_dir='MSLesSeg_Dataset_PNG/train',
+        ann_dir='MSLesSeg_Dataset_PNG_Fixed/train',
+        split='mslesseg_fold_edss/fold_1/val.txt',
         img_suffix='.png',
         seg_map_suffix='.png',
         pipeline=test_pipeline,
@@ -81,8 +81,8 @@ data = dict(
     test=dict(
         type=dataset_type,
         data_root=data_root,
-        img_dir='img_dir/test',
-        ann_dir='masks_dir/test',
+        img_dir='MSLesSeg_Dataset_PNG/test',
+        ann_dir='MSLesSeg_Dataset_PNG_Fixed/test',
         img_suffix='.png',
         seg_map_suffix='.png',
         pipeline=test_pipeline,
