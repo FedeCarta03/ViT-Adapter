@@ -83,8 +83,8 @@ if __name__ == "__main__":
     # Scegli il percorso in base a dove stai eseguendo lo script (Windows o WSL)
     
     # ESEMPIO SE ESEGUI DENTRO WSL (Ubuntu):
-    DIRECTORY_INPUT = "MSLesSeg_Dataset/MSLesSeg_Dataset/test"
-    DIRECTORY_OUTPUT = "MSLesSeg_Dataset_PNG/test"
+    DIRECTORY_INPUT = "MSLesSeg_Dataset/MSLesSeg_Dataset/train"
+    DIRECTORY_OUTPUT = "MSLesSeg_Dataset_PNG/train"
     
     
     processa_dataset(DIRECTORY_INPUT, DIRECTORY_OUTPUT)
