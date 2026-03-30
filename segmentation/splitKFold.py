@@ -1,86 +1,93 @@
+import pandas as pd
 import os
-from pathlib import Path
-from sklearn.model_selection import KFold
+from sklearn.model_selection import StratifiedKFold
 
-def genera_kfold_pazienti_txt(percorso_dataset, k=5, estensioni_valide=('.jpg', '.jpeg', '.png'), dir_output="fold"):
-    """
-    Legge le cartelle dei pazienti, le divide in k-fold (Patient-Level)
-    e salva i percorsi dei file in file txt dentro sottocartelle separate.
-    """
-    dataset_path = Path(percorso_dataset)
+def genera_kfold_stratificato_ms_type(file_csv, cartella_output, n_splits=5):
+    print("\n--- INIZIO ELABORAZIONE ---")
+    print(f"1. Lettura del file clinico: {file_csv}")
 
-    if not dataset_path.exists():
-        print(f"Errore: La cartella {percorso_dataset} non esiste.")
+    # 💡 TRUCCO MAGICO PANDAS: sep=None e engine='python' fanno sì che Pandas
+    # capisca da solo se il CSV usa la virgola o il punto e virgola!
+    try:
+        df = pd.read_csv(file_csv, sep=None, engine='python')
+    except Exception as e:
+        print(f"❌ ERRORE FATALE: Impossibile leggere il file CSV. Dettagli: {e}")
         return
 
-    # 1. Troviamo le cartelle principali (i Pazienti, es: P54, P55)
-    # Ignoriamo i file nascosti o file singoli messi per errore
-    pazienti = [d.name for d in dataset_path.iterdir() if d.is_dir() and not d.name.startswith('.')]
-    pazienti.sort() # Li ordiniamo per avere riproducibilità
+    # Stampiamo le colonne così vedi esattamente come si chiamano
+    colonne_trovate = df.columns.tolist()
+    print(f"✅ Colonne trovate nel CSV: {colonne_trovate}")
 
-    if not pazienti:
-        print(f"Errore: Nessuna cartella paziente trovata in {percorso_dataset}.")
+    # --- IMPOSTA I NOMI DELLE TUE COLONNE QUI ---
+    # Se lo script fallisce, controlla la lista stampata sopra e correggi questi due nomi!
+    colonna_paziente = 'Patient' 
+    colonna_target = 'MS_Type' 
+
+    # Controllo di sicurezza: le colonne esistono?
+    if colonna_paziente not in df.columns or colonna_target not in df.columns:
+        print(f"❌ ERRORE: Impossibile trovare '{colonna_paziente}' o '{colonna_target}'.")
+        print("Controlla i nomi esatti nella lista delle colonne stampata qui sopra!")
         return
 
-    print(f"Trovati {len(pazienti)} pazienti. Inizio la divisione in {k} fold (senza mischiare i pazienti!)...")
+    # Rimuoviamo i duplicati e le righe con target mancante (NaN)
+    df_pazienti = df.drop_duplicates(subset=[colonna_paziente]).copy()
+    df_pazienti = df_pazienti.dropna(subset=[colonna_target])
+    
+    print(f"2. Filtraggio: Trovati {len(df_pazienti)} pazienti unici e validi.")
 
-    # 2. Inizializziamo il K-Fold sui PAZIENTI (non sui file singoli)
-    kf = KFold(n_splits=k, shuffle=True, random_state=42)
+    if len(df_pazienti) == 0:
+        print("❌ ERRORE: I dati si sono svuotati! Impossibile procedere con lo split.")
+        return
 
-    # Funzione di supporto: dato un elenco di pazienti, raccoglie tutti i loro file
-    def raccogli_file_da_pazienti(lista_pazienti):
-        file_totali = []
-        for paziente in lista_pazienti:
-            path_paziente = dataset_path / paziente
-            # os.walk esplorerà eventuali sottocartelle (T1, T2, ecc.) di quel paziente
-            for root, _, files in os.walk(path_paziente):
-                for file in files:
-                    if file.lower().endswith(estensioni_valide) and not file.startswith('.'):
-                        percorso_completo = os.path.join(root, file)
-                        file_totali.append(percorso_completo)
-        return file_totali
+    # --- FASE DI SPLIT (K-FOLD STRATIFICATO) ---
+    print(f"3. Generazione dei {n_splits} Fold Stratificati in corso...")
+    
+    # Prepariamo X (gli ID dei pazienti) e y (le etichette per bilanciare i fold)
+    X = df_pazienti[colonna_paziente].values
+    y = df_pazienti[colonna_target].values
 
-    # 3. Creiamo la struttura delle cartelle e i file txt
-    for fold_idx, (train_index, val_index) in enumerate(kf.split(pazienti)):
-        fold_num = fold_idx + 1
-        
-        # Creiamo la cartella specifica per questo fold (es: fold/fold_1)
-        fold_dir = os.path.join(dir_output, f"fold_{fold_num}")
-        os.makedirs(fold_dir, exist_ok=True)
+    skf = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42)
 
-        # Estraiamo i NOMI dei pazienti per train e val
-        pazienti_train = [pazienti[i] for i in train_index]
-        pazienti_val = [pazienti[i] for i in val_index]
+    # Crea la cartella di output se non esiste
+    os.makedirs(cartella_output, exist_ok=True)
 
-        # Ora raccogliamo tutti i file png di quei specifici pazienti
-        train_files = raccogli_file_da_pazienti(pazienti_train)
-        val_files = raccogli_file_da_pazienti(pazienti_val)
+    fold = 1
+    # skf.split restituisce gli INDICI, non i valori reali
+    for train_index, val_index in skf.split(X, y):
+        # Recuperiamo gli ID reali usando gli indici
+        train_pazienti = X[train_index]
+        val_pazienti = X[val_index]
 
-        # Definiamo i percorsi di output per i txt
-        txt_train = os.path.join(fold_dir, "train.txt")
-        txt_val = os.path.join(fold_dir, "val.txt")
+        print(f"   -> Salvataggio Fold {fold}: {len(train_pazienti)} Train, {len(val_pazienti)} Validation")
+
+        # Prepariamo i percorsi dei file (salviamo in formato .txt, puoi cambiare in .csv se preferisci)
+        percorso_train = os.path.join(cartella_output, f'train_fold_{fold}.txt')
+        percorso_val = os.path.join(cartella_output, f'val_fold_{fold}.txt')
 
         # Scriviamo i file
-        with open(txt_train, 'w') as f_train:
-            f_train.write('\n'.join(train_files))
-            
-        with open(txt_val, 'w') as f_val:
-            f_val.write('\n'.join(val_files))
+        with open(percorso_train, 'w') as f:
+            for p in train_pazienti:
+                f.write(f"{p}\n")
 
-        print(f"✓ {fold_dir} creata -> Pazienti (Train: {len(pazienti_train)}, Val: {len(pazienti_val)}) " 
-              f"| File salvati (train.txt: {len(train_files)}, val.txt: {len(val_files)})")
-    
-    print(f"\nOperazione completata! Tutta la struttura è dentro la cartella: '{dir_output}'")
+        with open(percorso_val, 'w') as f:
+            for p in val_pazienti:
+                f.write(f"{p}\n")
+
+        fold += 1
+
+    print(f"🎉 Finito! I file non sono vuoti. Controlla la cartella: '{cartella_output}'.")
 
 
-# --- COME USARLO ---
+# --- ZONA DI ESECUZIONE DELLO SCRIPT ---
 if __name__ == "__main__":
-    # Inserisci il percorso della cartella 'train' che contiene i file PNG generati in precedenza
-    PERCORSO_DATASET = "data_medical/27919209/MSLesSeg_Dataset_PNG/train" 
     
-    genera_kfold_pazienti_txt(
-        percorso_dataset=PERCORSO_DATASET, 
-        k=5, 
-        estensioni_valide=('.jpg', '.png', '.jpeg'),
-        dir_output="mslesseg_folds"
-    )
+    # ⚠️ INSERISCI QUI I TUOI PERCORSI REALI
+    PERCORSO_CSV = "data_medical/27919209/MSLesSeg_Dataset/MSLesSeg_Dataset/info_dataset/clinical_data.csv"
+    
+    # Cartella dove vuoi che vengano creati i file txt/csv divisi
+    CARTELLA_OUTPUT = "folds_generati/" 
+    
+    # Scegli quanti fold vuoi (di solito 5)
+    NUMERO_FOLD = 5
+
+    genera_kfold_stratificato_ms_type(PERCORSO_CSV, CARTELLA_OUTPUT, n_splits=NUMERO_FOLD)
