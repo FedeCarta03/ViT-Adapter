@@ -3,62 +3,47 @@ import cv2
 import numpy as np
 from pathlib import Path
 
-def formatta_maschere_mslesseg(cartella_input, cartella_output):
+def applica_fix_a_tutto(cartella_input, cartella_output):
     """
-    Converte le maschere in scala di grigi a 1 canale e mappa i valori a 0 e 1,
-    cercando solo dentro le sottocartelle *_MASK.
+    Entra in ogni sottocartella e applica la binarizzazione (0-1) 
+    a OGNI immagine PNG che trova, mantenendo la struttura identica.
     """
     in_dir = Path(cartella_input)
     out_dir = Path(cartella_output)
-    out_dir.mkdir(parents=True, exist_ok=True)
 
-    # LA MAGIA È QUI: cerca i .png SOLO dentro le cartelle che finiscono per "_MASK"
-    file_trovati = list(in_dir.rglob('*_MASK/*.png'))
+    # Prende veramente TUTTI i PNG in ogni sottocartella possibile
+    tutti_i_png = list(in_dir.rglob('*.png'))
     
-    if not file_trovati:
-        print(f"Nessun file PNG trovato nelle cartelle maschera di {cartella_input}")
+    if not tutti_i_png:
+        print(f"Non ho trovato nemmeno un PNG in {in_dir}. Controlla il percorso!")
         return
 
-    print(f"Inizio conversione di {len(file_trovati)} maschere da {cartella_input}...")
+    print(f"Rilevati {len(tutti_i_png)} file. Inizio la conversione totale...")
 
-    for img_path in file_trovati:
-        # 1. Carichiamo l'immagine in scala di grigi
-        mask = cv2.imread(str(img_path), cv2.IMREAD_GRAYSCALE)
+    for img_path in tutti_i_png:
+        # 1. Carica l'immagine (qualsiasi essa sia)
+        img = cv2.imread(str(img_path), cv2.IMREAD_GRAYSCALE)
         
-        if mask is None:
-            print(f"Errore nella lettura di {img_path}")
+        if img is None:
+            print(f"Salto file corrotto o illeggibile: {img_path}")
             continue
 
-        # 2. Binarizzazione: i pixel > 0 diventano 1 (lesione), il resto 0 (sfondo)
-        mask_corretta = np.where(mask > 0, 1, 0).astype(np.uint8)
+        # 2. Applica il fix: tutto quello che non è nero (0) diventa 1
+        img_fixed = np.where(img > 0, 1, 0).astype(np.uint8)
 
-        # 3. Salviamo la maschera mantenendo la struttura annidata originale
-        percorso_relativo = img_path.relative_to(in_dir)
-        path_salvataggio = out_dir / percorso_relativo
-        path_salvataggio.parent.mkdir(parents=True, exist_ok=True)
-        
-        cv2.imwrite(str(path_salvataggio), mask_corretta)
+        # 3. Ricostruisce il percorso identico nella cartella di destinazione
+        rel_path = img_path.relative_to(in_dir)
+        target_path = out_dir / rel_path
+        target_path.parent.mkdir(parents=True, exist_ok=True)
 
-    print(f"Completato! Maschere salvate in: {cartella_output}")
+        # 4. Salva con lo stesso nome
+        cv2.imwrite(str(target_path), img_fixed)
+
+    print(f"\n✅ Operazione completata. Struttura clonata e file fixati in: {out_dir}")
 
 if __name__ == "__main__":
-    # Il percorso base estratto dal tuo screenshot
-    # Assicurati di lanciare lo script dalla cartella "segmentation"
-    BASE_DIR = "data_medical/27919209/MSLesSeg_Dataset_PNG"
-    
-    # Cartella dove salverà i risultati mantenendo la stessa struttura, 
-    # ma in una root separata per non sovrascrivere i file originali
-    OUT_DIR = "data_medical/27919209/MSLesSeg_Dataset_PNG_Fixed"
-    
-    # Presumo tu abbia le cartelle 'test', 'train' (e forse 'val')
-    splits = ['train', 'val', 'test']
-    
-    for split in splits:
-        cartella_in = f"{BASE_DIR}/{split}"
-        cartella_out = f"{OUT_DIR}/{split}"
-        
-        # Controlla se la cartella esiste (es. potrebbe mancare 'val')
-        if Path(cartella_in).exists():
-            formatta_maschere_mslesseg(cartella_in, cartella_out)
-        else:
-            print(f"Cartella {cartella_in} non trovata, salto...")
+    # Assicurati che questi percorsi siano corretti per il tuo ambiente
+    PATH_INPUT = "data_medical/27919209/MSLesSeg_Dataset_PNG"
+    PATH_OUTPUT = "data_medical/27919209/MSLesSeg_Dataset_PNG_Fixed"
+
+    applica_fix_a_tutto(PATH_INPUT, PATH_OUTPUT)
