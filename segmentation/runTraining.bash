@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Definisci il file di configurazione base
-CONFIG="configs/vit_adapter/medseg_custom.py"
+CONFIG="configs/vit_adapter/medseg_custom_copy.py"
 
 # Ciclo for da 1 a 5 per i nostri Fold
 for FOLD in {1..5}
@@ -11,14 +11,14 @@ do
     echo "=========================================================="
     
     # Cartella dove verranno salvati i pesi e i log di questo fold
-    WORK_DIR="work_dirs/medseg_custom/fold_${FOLD}"
+    WORK_DIR="work_dirs2/medseg_custom/fold_${FOLD}"
     
     # Eseguiamo il training sovrascrivendo i file di split e la work_dir
     # Eseguiamo il training sovrascrivendo i file di split e la work_dir
     OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 CV_NUM_THREADS=0 python -u train.py $CONFIG \
         --work-dir $WORK_DIR \
-        --cfg-options data.train.split="$PWD/mslesseg_folds_edss/fold_${FOLD}/train.txt" \
-                      data.val.split="$PWD/mslesseg_folds_edss/fold_${FOLD}/val.txt" \
+        --cfg-options data.train.split="$PWD/mslesseg_folds_mstype/fold_${FOLD}/train.txt" \
+                      data.val.split="$PWD/mslesseg_folds_mstype/fold_${FOLD}/val.txt" \
                       evaluation.work_dir=$WORK_DIR
                       
     echo "=========================================================="
