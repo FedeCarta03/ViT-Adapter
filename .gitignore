@@ -146,3 +146,6 @@ datasets/
 *.zip
 *.tar.gz
 *.csv
+
+segmentation/data_medical/27919209
+segmentation/data_medical/PolypGen
