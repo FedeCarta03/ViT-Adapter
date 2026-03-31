@@ -1,0 +1,54 @@
+==================================================
+REPORT METRICHE AVANZATO - 2 CLASSI
+==================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[357214699   2458537]
+ [  6351713  96121099]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     357214699
+  Vero Negativo (TN):      96121099
+  Falso Positivo (FP):      6351713
+  Falso Negativo (FN):      2458537
+
+Metriche:
+  Pixel Accuracy:      0.9809
+  IoU (Jaccard):       0.9759
+  Dice (F1-Score):     0.9878
+  Precision:           0.9825
+  Recall/Sensitivity:  0.9932
+  Specificity:         0.9380
+  Balanced Accuracy:   0.9656
+  MCC:                 35100589.3781
+
+--- Dettaglio Classe: LESION ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):      96121099
+  Vero Negativo (TN):     357214699
+  Falso Positivo (FP):      2458537
+  Falso Negativo (FN):      6351713
+
+Metriche:
+  Pixel Accuracy:      0.9809
+  IoU (Jaccard):       0.9160
+  Dice (F1-Score):     0.9562
+  Precision:           0.9751
+  Recall/Sensitivity:  0.9380
+  Specificity:         0.9932
+  Balanced Accuracy:   0.9656
+  MCC:                 35100589.3781
+
+--------------------------------------------------
+[MEDIE MACRO (Macro-Average)]
+  Mean Pixel Accuracy: 0.9809
+  Mean IoU (mIoU):     0.9460
+  Mean Dice (mF1):     0.9720
+  Mean Precision:      0.9788
+  Mean Recall/Sens.:   0.9656
+  Mean Specificity:    0.9656
+  Mean Balanced Acc:   0.9656
+  Mean MCC:            35100589.3781
+==================================================
+

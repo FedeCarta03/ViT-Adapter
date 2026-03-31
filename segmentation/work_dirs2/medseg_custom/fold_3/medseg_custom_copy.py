@@ -23,8 +23,7 @@ model = dict(
         window_size=[
             None, None, None, None, None, None, None, None, None, None, None,
             None
-        ],
-        with_cp=True),
+        ]),
     decode_head=dict(
         type='UPerHead',
         in_channels=[768, 768, 768, 768],
@@ -51,7 +50,7 @@ model = dict(
         loss_decode=dict(
             type='CrossEntropyLoss', use_sigmoid=False, loss_weight=0.4)),
     train_cfg=dict(),
-    test_cfg=dict(mode='whole', crop_size=(512, 512), stride=(341, 341)))
+    test_cfg=dict(mode='slide', crop_size=(512, 512), stride=(341, 341)))
 dataset_type = 'SklearnMetricsDataset'
 data_root = 'data_medical/27919209'
 img_norm_cfg = dict(
@@ -86,7 +85,6 @@ test_pipeline = [
                 mean=[123.675, 116.28, 103.53],
                 std=[58.395, 57.12, 57.375],
                 to_rgb=True),
-            dict(type='Pad', size_divisor=32, pad_val=0, seg_pad_val=255),
             dict(type='ImageToTensor', keys=['img']),
             dict(type='Collect', keys=['img'])
         ])
@@ -115,7 +113,7 @@ data = dict(
             dict(type='Collect', keys=['img', 'gt_semantic_seg'])
         ],
         split=
-        '/home/jacopo/Git/ViT-Adapter/segmentation/mslesseg_folds_mstype/fold_1/train.txt',
+        '/home/jacopo/Git/ViT-Adapter/segmentation/mslesseg_folds_mstype/fold_3/train.txt',
         img_suffix='.png',
         seg_map_suffix='.png',
         classes=('background', 'lesion'),
@@ -139,17 +137,12 @@ data = dict(
                         mean=[123.675, 116.28, 103.53],
                         std=[58.395, 57.12, 57.375],
                         to_rgb=True),
-                    dict(
-                        type='Pad',
-                        size_divisor=32,
-                        pad_val=0,
-                        seg_pad_val=255),
                     dict(type='ImageToTensor', keys=['img']),
                     dict(type='Collect', keys=['img'])
                 ])
         ],
         split=
-        '/home/jacopo/Git/ViT-Adapter/segmentation/mslesseg_folds_mstype/fold_1/val.txt',
+        '/home/jacopo/Git/ViT-Adapter/segmentation/mslesseg_folds_mstype/fold_3/val.txt',
         img_suffix='.png',
         seg_map_suffix='.png',
         classes=('background', 'lesion'),
@@ -173,11 +166,6 @@ data = dict(
                         mean=[123.675, 116.28, 103.53],
                         std=[58.395, 57.12, 57.375],
                         to_rgb=True),
-                    dict(
-                        type='Pad',
-                        size_divisor=32,
-                        pad_val=0,
-                        seg_pad_val=255),
                     dict(type='ImageToTensor', keys=['img']),
                     dict(type='Collect', keys=['img'])
                 ])
@@ -186,10 +174,7 @@ data = dict(
         seg_map_suffix='.png',
         classes=('background', 'lesion'),
         palette=[[0, 0, 0], [255, 0, 0]]),
-    persistent_workers=False,
-    train_dataloader=dict(pin_memory=True),
-    val_dataloader=dict(pin_memory=True),
-    test_dataloader=dict(pin_memory=True))
+    persistent_workers=False)
 log_config = dict(
     interval=200, hooks=[dict(type='TextLoggerHook', by_epoch=False)])
 dist_params = dict(backend='nccl')
@@ -221,7 +206,7 @@ evaluation = dict(
     metric='mIoU',
     pre_eval=True,
     save_best='mIoU',
-    work_dir='work_dirs2/medseg_custom/fold_1')
+    work_dir='work_dirs2/medseg_custom/fold_3')
 pretrained = 'pretrained/deit_base_patch16_224-b5f2ef4d.pth'
 albu_train_transforms = [
     dict(type='Rotate', limit=60, p=0.5),
@@ -251,7 +236,7 @@ albu_train_transforms = [
         p=0.5)
 ]
 fp16 = dict(loss_scale=dict(init_scale=512))
-work_dir = 'work_dirs2/medseg_custom/fold_1'
+work_dir = 'work_dirs2/medseg_custom/fold_3'
 gpu_ids = range(0, 1)
 auto_resume = False
 device = 'cuda'

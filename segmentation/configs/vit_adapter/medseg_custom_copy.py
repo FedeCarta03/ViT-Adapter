@@ -42,6 +42,7 @@ test_pipeline = [
             dict(type='Resize', keep_ratio=True),
             dict(type='RandomFlip'),
             dict(type='Normalize', **img_norm_cfg),
+            dict(type='Pad', size_divisor=32, pad_val=0, seg_pad_val=255),
             dict(type='ImageToTensor', keys=['img']),
             dict(type='Collect', keys=['img']),
         ])
@@ -53,6 +54,10 @@ data = dict(
     workers_per_gpu=1,        # 1 worker per evitare l'errore ">0"
     persistent_workers=False, # Disattivato per evitare conflitti di memoria
     # ----------------------------------------
+
+    #train_dataloader=dict(pin_memory=True),
+    #val_dataloader=dict(pin_memory=True),
+    #test_dataloader=dict(pin_memory=True),
 
     train=dict(
         type=dataset_type,
@@ -94,6 +99,8 @@ data = dict(
 # la BatchNorm fallisce matematicamente (divisione per zero/errore statistico).
 norm_cfg = dict(type='GN', num_groups=32, requires_grad=True)
 
+fp16 = dict(loss_scale=dict(init_scale=512))
+
 model = dict(
     decode_head=dict(
         num_classes=2,      # 2 classi: sfondo + lesione
@@ -102,7 +109,8 @@ model = dict(
     auxiliary_head=dict(
         num_classes=2,
         norm_cfg=norm_cfg   # Usa Group Norm
-    )
+    ),
+    test_cfg=dict(mode='whole'),
 )
 
 # --- IMPOSTAZIONI RUNNER ---
