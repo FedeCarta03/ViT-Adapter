@@ -149,3 +149,8 @@ datasets/
 
 segmentation/data_medical/27919209
 segmentation/data_medical/PolypGen
+
+segmentation/data_medical
+
+segmentation/work_dirs/*
+segmentation/work_dirs2/*
