@@ -50,7 +50,7 @@ model = dict(
         loss_decode=dict(
             type='CrossEntropyLoss', use_sigmoid=False, loss_weight=0.4)),
     train_cfg=dict(),
-    test_cfg=dict(mode='slide', crop_size=(512, 512), stride=(341, 341)))
+    test_cfg=dict(mode='whole', crop_size=(512, 512), stride=(341, 341)))
 dataset_type = 'SklearnMetricsDataset'
 data_root = 'data_medical/27919209'
 img_norm_cfg = dict(
@@ -85,6 +85,7 @@ test_pipeline = [
                 mean=[123.675, 116.28, 103.53],
                 std=[58.395, 57.12, 57.375],
                 to_rgb=True),
+            dict(type='Pad', size_divisor=32, pad_val=0, seg_pad_val=255),
             dict(type='ImageToTensor', keys=['img']),
             dict(type='Collect', keys=['img'])
         ])
@@ -113,7 +114,7 @@ data = dict(
             dict(type='Collect', keys=['img', 'gt_semantic_seg'])
         ],
         split=
-        '/home/jacopo/Git/ViT-Adapter/segmentation/mslesseg_folds_mstype/fold_3/train.txt',
+        '/home/fede/ViT-Adapter/segmentation/mslesseg_folds_mstype/fold_3/train.txt',
         img_suffix='.png',
         seg_map_suffix='.png',
         classes=('background', 'lesion'),
@@ -137,12 +138,17 @@ data = dict(
                         mean=[123.675, 116.28, 103.53],
                         std=[58.395, 57.12, 57.375],
                         to_rgb=True),
+                    dict(
+                        type='Pad',
+                        size_divisor=32,
+                        pad_val=0,
+                        seg_pad_val=255),
                     dict(type='ImageToTensor', keys=['img']),
                     dict(type='Collect', keys=['img'])
                 ])
         ],
         split=
-        '/home/jacopo/Git/ViT-Adapter/segmentation/mslesseg_folds_mstype/fold_3/val.txt',
+        '/home/fede/ViT-Adapter/segmentation/mslesseg_folds_mstype/fold_3/val.txt',
         img_suffix='.png',
         seg_map_suffix='.png',
         classes=('background', 'lesion'),
@@ -166,6 +172,11 @@ data = dict(
                         mean=[123.675, 116.28, 103.53],
                         std=[58.395, 57.12, 57.375],
                         to_rgb=True),
+                    dict(
+                        type='Pad',
+                        size_divisor=32,
+                        pad_val=0,
+                        seg_pad_val=255),
                     dict(type='ImageToTensor', keys=['img']),
                     dict(type='Collect', keys=['img'])
                 ])

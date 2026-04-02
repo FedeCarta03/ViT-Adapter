@@ -23,8 +23,7 @@ model = dict(
         window_size=[
             None, None, None, None, None, None, None, None, None, None, None,
             None
-        ],
-        with_cp=True),
+        ]),
     decode_head=dict(
         type='UPerHead',
         in_channels=[768, 768, 768, 768],
@@ -115,7 +114,7 @@ data = dict(
             dict(type='Collect', keys=['img', 'gt_semantic_seg'])
         ],
         split=
-        '/home/jacopo/Git/ViT-Adapter/segmentation/mslesseg_folds_mstype/fold_1/train.txt',
+        '/home/fede/ViT-Adapter/segmentation/mslesseg_folds_mstype/fold_1/train.txt',
         img_suffix='.png',
         seg_map_suffix='.png',
         classes=('background', 'lesion'),
@@ -149,7 +148,7 @@ data = dict(
                 ])
         ],
         split=
-        '/home/jacopo/Git/ViT-Adapter/segmentation/mslesseg_folds_mstype/fold_1/val.txt',
+        '/home/fede/ViT-Adapter/segmentation/mslesseg_folds_mstype/fold_1/val.txt',
         img_suffix='.png',
         seg_map_suffix='.png',
         classes=('background', 'lesion'),
@@ -186,10 +185,7 @@ data = dict(
         seg_map_suffix='.png',
         classes=('background', 'lesion'),
         palette=[[0, 0, 0], [255, 0, 0]]),
-    persistent_workers=False,
-    train_dataloader=dict(pin_memory=True),
-    val_dataloader=dict(pin_memory=True),
-    test_dataloader=dict(pin_memory=True))
+    persistent_workers=False)
 log_config = dict(
     interval=200, hooks=[dict(type='TextLoggerHook', by_epoch=False)])
 dist_params = dict(backend='nccl')
