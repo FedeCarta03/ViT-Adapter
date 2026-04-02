@@ -12,7 +12,7 @@ from mmseg.apis import init_segmentor, inference_segmentor
 def esegui_ensemble():
     # --- CONFIGURAZIONE PERCORSI ---
     config_file = 'configs/vit_adapter/medseg_custom_copy.py'
-    cartella_test = 'data_medical/27919209/MSLesSeg_Dataset_PNG_Fixed/test'
+    cartella_test = 'data_medical/27919209/MSLesSeg_Dataset_PNG/test'
     cartella_output = 'risultati_visivi_mstype' # Nuova cartella per gli overlay
     
     # Assicurati che il nome corrisponda all'ultimo salvataggio del tuo training
