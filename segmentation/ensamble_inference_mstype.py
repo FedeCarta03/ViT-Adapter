@@ -20,14 +20,19 @@ def esegui_ensemble():
     checkpoints = [f'work_dirs2/medseg_custom/fold_{i}/{nome_pesi}' for i in range(1, 6)]
     
     os.makedirs(cartella_output, exist_ok=True)
-    immagini_test = list(Path(cartella_test).glob('*.png'))
+    
+    # MODIFICA 1: Ricerca ricorsiva (rglob). 
+    # Cerca tutte le PNG dentro le cartelle che finiscono con "_FLAIR"
+    immagini_test = list(Path(cartella_test).rglob('*_FLAIR/*.png'))
     
     if not immagini_test:
-        print(f"Nessuna immagine trovata in {cartella_test}")
+        print(f"Nessuna immagine trovata nelle sottocartelle di {cartella_test}")
         return
 
-    print(f"Inizio Ensemble su {len(immagini_test)} immagini...")
-    voti_cumulativi = {img.name: None for img in immagini_test}
+    print(f"Inizio Ensemble su {len(immagini_test)} immagini trovate...")
+    
+    # MODIFICA 2: Usiamo il path convertito a stringa come chiave per evitare collisioni di nomi
+    voti_cumulativi = {str(img): None for img in immagini_test}
 
     # --- CICLO SUI 5 MODELLI ---
     model = None
@@ -40,16 +45,16 @@ def esegui_ensemble():
         model = init_segmentor(config_file, ckpt_path, device='cuda:0')
         
         for img_path in immagini_test:
-            risultato = inference_segmentor(model, str(img_path))
+            percorso_str = str(img_path)
+            risultato = inference_segmentor(model, percorso_str)
             maschera_predetta = risultato[0].astype(np.uint8) 
             
-            if voti_cumulativi[img_path.name] is None:
-                voti_cumulativi[img_path.name] = maschera_predetta
+            if voti_cumulativi[percorso_str] is None:
+                voti_cumulativi[percorso_str] = maschera_predetta
             else:
-                voti_cumulativi[img_path.name] += maschera_predetta
+                voti_cumulativi[percorso_str] += maschera_predetta
 
         # Puliamo la memoria della GPU, TRANNE per l'ultimo modello
-        # (L'ultimo ci serve per usare la sua funzione di disegno!)
         if fold_idx < len(checkpoints):
             del model
             torch.cuda.empty_cache()
@@ -61,25 +66,32 @@ def esegui_ensemble():
     print("\nGenerazione delle immagini finali con opacità 0.8...")
     
     for img_path in immagini_test:
-        somma_voti = voti_cumulativi[img_path.name]
+        percorso_str = str(img_path)
+        somma_voti = voti_cumulativi[percorso_str]
+        
         if somma_voti is None:
             continue
             
-        # Voto a maggioranza: >= 3 modelli dicono che è un polipo
+        # Voto a maggioranza: >= 3 modelli dicono che è una lesione
         maschera_ensemble = np.where(somma_voti >= 3, 1, 0).astype(np.uint8)
         
-        path_salvataggio = os.path.join(cartella_output, img_path.name)
+        # MODIFICA 3: Calcola il percorso relativo per replicare la struttura delle cartelle in output
+        # Se img_path è "test/P54/P54_FLAIR/001.png", il relativo è "P54/P54_FLAIR/001.png"
+        percorso_relativo = img_path.relative_to(cartella_test)
+        path_salvataggio = os.path.join(cartella_output, percorso_relativo)
         
-        # Usiamo la funzione ufficiale di mmseg per creare l'overlay (come il tuo comando test.py!)
-        # Passiamo la nostra maschera "perfetta" generata dall'ensemble
+        # Crea le cartelle P54/P54_FLAIR nella destinazione se non esistono
+        os.makedirs(os.path.dirname(path_salvataggio), exist_ok=True)
+        
+        # Usiamo la funzione ufficiale di mmseg per creare l'overlay
         model.show_result(
-            str(img_path),
+            percorso_str,
             [maschera_ensemble],
             out_file=path_salvataggio,
             opacity=0.8
         )
 
-    print(f"\n✅ FINITO! Le immagini con l'overlay sono in: '{cartella_output}'")
+    print(f"\n✅ FINITO! Le immagini con l'overlay (divise per cartelle) sono in: '{cartella_output}'")
 
 if __name__ == '__main__':
     esegui_ensemble()
