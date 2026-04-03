@@ -1,14 +1,16 @@
 # mask_rcnn_vit_adapter_tiny_airleish.py
 
 _base_ = [
-    '../_base_/models/mask_rcnn_r50_fpn.py',
-    '../_base_/datasets/coco_instance.py',
-    '../_base_/schedules/schedule_1x.py', # Inizia con 1x (12 epoche) per testare
-    '../_base_/default_runtime.py'
+    'configs/_base_/models/mask_rcnn_r50_fpn.py',
+    'configs/_base_/datasets/coco_instance.py',
+    'configs/_base_/schedules/schedule_1x.py', # Inizia con 1x (12 epoche) per testare
+    'configs/_base_/default_runtime.py'
 ]
 
+custom_imports = dict(imports=['metriche_dataset'], allow_failed_imports=False)
+
 # 1. PESI PREADDRESTRATI (Assicurati che il file sia in questa cartella)
-pretrained = 'pretrained/deit_tiny_patch16_224-a1311bcf.pth'
+pretrained = 'pretrained/deit_base_patch16_224-b5f2ef4d.pth'
 
 # 2. CONFIGURAZIONE MODELLO (Specifico per Tiny)
 model = dict(
@@ -16,14 +18,14 @@ model = dict(
         _delete_=True,
         type='ViTAdapter',
         patch_size=16,
-        embed_dim=192,         # Cambiato per Tiny (Base era 768)
+        embed_dim=768,         # Cambiato per Tiny (Base era 768) Tiny = 192 Small=364
         depth=12,
-        num_heads=3,           # Cambiato per Tiny (Base era 12)
+        num_heads=12,           # Cambiato per Tiny (Base era 12) Tiny = 3 Small=6
         mlp_ratio=4,
-        drop_path_rate=0.1,    # Ridotto per modelli piccoli
+        drop_path_rate=0.3,    # Ridotto per modelli piccoli
         conv_inplane=64,
         n_points=4,
-        deform_num_heads=6,
+        deform_num_heads=12,
         cffn_ratio=0.25,
         deform_ratio=1.0,
         interaction_indexes=[[0, 2], [3, 5], [6, 8], [9, 11]],
@@ -35,7 +37,7 @@ model = dict(
         pretrained=pretrained),
     neck=dict(
         type='FPN',
-        in_channels=[192, 192, 192, 192], # Deve corrispondere a embed_dim
+        in_channels=[768, 768, 768, 768], # Deve corrispondere a embed_dim
         out_channels=256,
         num_outs=5),
     roi_head=dict(
@@ -80,25 +82,25 @@ test_pipeline = [
 
 # 5. CONFIGURAZIONE DATA (Set1 per Train, Set2 per Val)
 data = dict(
-    samples_per_gpu=2,
+    samples_per_gpu=1,
     workers_per_gpu=2,
     train=dict(
-        type='CocoDataset',
+        type='AirLeishReportDataset',
         classes=classes,
         ann_file='dataset/AIR_LEISH_dataset/Set2/_annotations.coco.json',
         img_prefix='dataset/AIR_LEISH_dataset/Set2/Images/',
         pipeline=train_pipeline),
     val=dict(
-        type='CocoDataset',
+        type='AirLeishReportDataset',
         classes=classes,
         ann_file='dataset/AIR_LEISH_dataset/Set1/_annotations.coco.json',
         img_prefix='dataset/AIR_LEISH_dataset/Set1/Images/',
         pipeline=test_pipeline),
     test=dict(
-        type='CocoDataset',
+        type='AirLeishReportDataset',
         classes=classes,
-        ann_file='dataset/AIR_LEISH_dataset/Set2/_annotations.coco.json',
-        img_prefix='dataset/AIR_LEISH_dataset/Set2/Images/',
+        ann_file='dataset/AIR_LEISH_dataset/Set1/_annotations.coco.json',
+        img_prefix='dataset/AIR_LEISH_dataset/Set1/Images/',
         pipeline=test_pipeline)
 )
 
@@ -115,6 +117,8 @@ optimizer = dict(
 optimizer_config = dict(grad_clip=None)
 
 # 7. RUNTIME & EVALUATION
-evaluation = dict(interval=1, metric=['bbox', 'segm'], save_best='auto')
+evaluation = dict(interval=1, metric=['bbox', 'segm'], save_best='auto', classwise=True)
 checkpoint_config = dict(interval=1, max_keep_ckpts=3, save_last=True)
 dist_params = dict(backend='gloo')
+
+
