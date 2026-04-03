@@ -10,7 +10,7 @@ _base_ = [
 custom_imports = dict(imports=['metriche_dataset'], allow_failed_imports=False)
 
 # 1. PESI PREADDRESTRATI (Assicurati che il file sia in questa cartella)
-pretrained = 'pretrained/deit_base_patch16_224-b5f2ef4d.pth'
+pretrained = 'pretrained/deit_small_patch16_224-cd65a155.pth'
 
 # 2. CONFIGURAZIONE MODELLO (Specifico per Tiny)
 model = dict(
@@ -18,9 +18,9 @@ model = dict(
         _delete_=True,
         type='ViTAdapter',
         patch_size=16,
-        embed_dim=768,         # Cambiato per Tiny (Base era 768) Tiny = 192 Small=364
+        embed_dim=384,         # Cambiato per Tiny (Base era 768) Tiny = 192 Small=384
         depth=12,
-        num_heads=12,           # Cambiato per Tiny (Base era 12) Tiny = 3 Small=6
+        num_heads=6,           # Cambiato per Tiny (Base era 12) Tiny = 3 Small=6
         mlp_ratio=4,
         drop_path_rate=0.3,    # Ridotto per modelli piccoli
         conv_inplane=64,
@@ -37,7 +37,7 @@ model = dict(
         pretrained=pretrained),
     neck=dict(
         type='FPN',
-        in_channels=[768, 768, 768, 768], # Deve corrispondere a embed_dim
+        in_channels=[384, 384, 384, 384], # Deve corrispondere a embed_dim
         out_channels=256,
         num_outs=5),
     roi_head=dict(
@@ -83,7 +83,13 @@ test_pipeline = [
 # 5. CONFIGURAZIONE DATA (Set1 per Train, Set2 per Val)
 data = dict(
     samples_per_gpu=1,
-    workers_per_gpu=2,
+    workers_per_gpu=0,
+    
+    train_dataloader=dict(pin_memory=False), # <--- AGGIUNGI QUESTO
+    val_dataloader=dict(pin_memory=False),   # <--- AGGIUNGI QUESTO
+    test_dataloader=dict(pin_memory=False),  # <--- AGGIUNGI QUESTO
+
+
     train=dict(
         type='AirLeishReportDataset',
         classes=classes,
@@ -120,5 +126,3 @@ optimizer_config = dict(grad_clip=None)
 evaluation = dict(interval=1, metric=['bbox', 'segm'], save_best='auto', classwise=True)
 checkpoint_config = dict(interval=1, max_keep_ckpts=3, save_last=True)
 dist_params = dict(backend='gloo')
-
-

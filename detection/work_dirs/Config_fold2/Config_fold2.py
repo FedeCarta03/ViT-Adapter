@@ -3,9 +3,9 @@ model = dict(
     backbone=dict(
         type='ViTAdapter',
         patch_size=16,
-        embed_dim=768,
+        embed_dim=384,
         depth=12,
-        num_heads=12,
+        num_heads=6,
         mlp_ratio=4,
         drop_path_rate=0.3,
         conv_inplane=64,
@@ -19,10 +19,10 @@ model = dict(
             True, False
         ],
         window_size=[14, 14, None, 14, 14, None, 14, 14, None, 14, 14, None],
-        pretrained='pretrained/deit_base_patch16_224-b5f2ef4d.pth'),
+        pretrained='pretrained/deit_small_patch16_224-cd65a155.pth'),
     neck=dict(
         type='FPN',
-        in_channels=[768, 768, 768, 768],
+        in_channels=[384, 384, 384, 384],
         out_channels=256,
         num_outs=5),
     rpn_head=dict(
@@ -165,7 +165,7 @@ test_pipeline = [
 ]
 data = dict(
     samples_per_gpu=1,
-    workers_per_gpu=2,
+    workers_per_gpu=0,
     train=dict(
         type='AirLeishReportDataset',
         ann_file='dataset/AIR_LEISH_dataset/Set2/_annotations.coco.json',
@@ -234,7 +234,10 @@ data = dict(
                     dict(type='Collect', keys=['img'])
                 ])
         ],
-        classes=('AM', 'HC', 'NU')))
+        classes=('AM', 'HC', 'NU')),
+    train_dataloader=dict(pin_memory=False),
+    val_dataloader=dict(pin_memory=False),
+    test_dataloader=dict(pin_memory=False))
 evaluation = dict(
     metric=['bbox', 'segm'], interval=1, save_best='auto', classwise=True)
 optimizer = dict(
@@ -264,7 +267,7 @@ load_from = None
 resume_from = None
 workflow = [('train', 1)]
 custom_imports = dict(imports=['metriche_dataset'], allow_failed_imports=False)
-pretrained = 'pretrained/deit_base_patch16_224-b5f2ef4d.pth'
+pretrained = 'pretrained/deit_small_patch16_224-cd65a155.pth'
 classes = ('AM', 'HC', 'NU')
 work_dir = './work_dirs/Config_fold2'
 auto_resume = False
