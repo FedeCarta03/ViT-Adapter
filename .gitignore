@@ -154,3 +154,6 @@ segmentation/data_medical
 
 segmentation/work_dirs/*
 segmentation/work_dirs2/*
+
+
+detection/dataset/*
