@@ -1,0 +1,221 @@
+==================================================
+REPORT EPOCHE - MMDET COCO EVALUATION
+==================================================
+bbox_mAP                      : 0.0011
+bbox_mAP_50                   : 0.0068
+bbox_mAP_75                   : 0.0000
+bbox_mAP_s                    : 0.0000
+bbox_mAP_m                    : 0.0000
+bbox_mAP_l                    : 0.0016
+segm_mAP                      : 0.0004
+segm_mAP_50                   : 0.0029
+segm_mAP_75                   : 0.0000
+segm_mAP_s                    : 0.0000
+segm_mAP_m                    : 0.0000
+segm_mAP_l                    : 0.0007
+
+
+==================================================
+REPORT EPOCHE - MMDET COCO EVALUATION
+==================================================
+bbox_mAP                      : 0.0320
+bbox_mAP_50                   : 0.1190
+bbox_mAP_75                   : 0.0039
+bbox_mAP_s                    : 0.0000
+bbox_mAP_m                    : 0.0000
+bbox_mAP_l                    : 0.0481
+segm_mAP                      : 0.0277
+segm_mAP_50                   : 0.0954
+segm_mAP_75                   : 0.0028
+segm_mAP_s                    : 0.0000
+segm_mAP_m                    : 0.0000
+segm_mAP_l                    : 0.0418
+
+
+==================================================
+REPORT EPOCHE - MMDET COCO EVALUATION
+==================================================
+bbox_mAP                      : 0.0746
+bbox_mAP_50                   : 0.2194
+bbox_mAP_75                   : 0.0251
+bbox_mAP_s                    : 0.0000
+bbox_mAP_m                    : 0.0000
+bbox_mAP_l                    : 0.1123
+segm_mAP                      : 0.0650
+segm_mAP_50                   : 0.1959
+segm_mAP_75                   : 0.0277
+segm_mAP_s                    : 0.0000
+segm_mAP_m                    : 0.0000
+segm_mAP_l                    : 0.1006
+
+
+==================================================
+REPORT EPOCHE - MMDET COCO EVALUATION
+==================================================
+bbox_mAP                      : 0.0781
+bbox_mAP_50                   : 0.2148
+bbox_mAP_75                   : 0.0302
+bbox_mAP_s                    : 0.0000
+bbox_mAP_m                    : 0.0000
+bbox_mAP_l                    : 0.1177
+segm_mAP                      : 0.0900
+segm_mAP_50                   : 0.2281
+segm_mAP_75                   : 0.0551
+segm_mAP_s                    : 0.0000
+segm_mAP_m                    : 0.0000
+segm_mAP_l                    : 0.1380
+
+
+==================================================
+REPORT EPOCHE - MMDET COCO EVALUATION
+==================================================
+bbox_mAP                      : 0.1050
+bbox_mAP_50                   : 0.2669
+bbox_mAP_75                   : 0.0629
+bbox_mAP_s                    : 0.0000
+bbox_mAP_m                    : 0.0000
+bbox_mAP_l                    : 0.1594
+segm_mAP                      : 0.1126
+segm_mAP_50                   : 0.2622
+segm_mAP_75                   : 0.0843
+segm_mAP_s                    : 0.0000
+segm_mAP_m                    : 0.0000
+segm_mAP_l                    : 0.1719
+
+
+==================================================
+REPORT EPOCHE - MMDET COCO EVALUATION
+==================================================
+bbox_mAP                      : 0.1090
+bbox_mAP_50                   : 0.2764
+bbox_mAP_75                   : 0.0587
+bbox_mAP_s                    : 0.0000
+bbox_mAP_m                    : 0.0014
+bbox_mAP_l                    : 0.1644
+segm_mAP                      : 0.0930
+segm_mAP_50                   : 0.2346
+segm_mAP_75                   : 0.0506
+segm_mAP_s                    : 0.0000
+segm_mAP_m                    : 0.0000
+segm_mAP_l                    : 0.1426
+
+
+==================================================
+REPORT EPOCHE - MMDET COCO EVALUATION
+==================================================
+bbox_mAP                      : 0.1210
+bbox_mAP_50                   : 0.3063
+bbox_mAP_75                   : 0.0503
+bbox_mAP_s                    : 0.0000
+bbox_mAP_m                    : 0.0042
+bbox_mAP_l                    : 0.1825
+segm_mAP                      : 0.1484
+segm_mAP_50                   : 0.3152
+segm_mAP_75                   : 0.1283
+segm_mAP_s                    : 0.0000
+segm_mAP_m                    : 0.0007
+segm_mAP_l                    : 0.2257
+
+
+==================================================
+REPORT EPOCHE - MMDET COCO EVALUATION
+==================================================
+bbox_mAP                      : 0.1329
+bbox_mAP_50                   : 0.3254
+bbox_mAP_75                   : 0.0846
+bbox_mAP_s                    : 0.0000
+bbox_mAP_m                    : 0.0018
+bbox_mAP_l                    : 0.2008
+segm_mAP                      : 0.1235
+segm_mAP_50                   : 0.3035
+segm_mAP_75                   : 0.0801
+segm_mAP_s                    : 0.0000
+segm_mAP_m                    : 0.0000
+segm_mAP_l                    : 0.1904
+
+
+==================================================
+REPORT EPOCHE - MMDET COCO EVALUATION
+==================================================
+bbox_mAP                      : 0.1606
+bbox_mAP_50                   : 0.3512
+bbox_mAP_75                   : 0.1321
+bbox_mAP_s                    : 0.0000
+bbox_mAP_m                    : 0.0032
+bbox_mAP_l                    : 0.2420
+segm_mAP                      : 0.1317
+segm_mAP_50                   : 0.3117
+segm_mAP_75                   : 0.0879
+segm_mAP_s                    : 0.0000
+segm_mAP_m                    : 0.0000
+segm_mAP_l                    : 0.2015
+
+
+==================================================
+REPORT EPOCHE - MMDET COCO EVALUATION
+==================================================
+bbox_mAP                      : 0.1564
+bbox_mAP_50                   : 0.3407
+bbox_mAP_75                   : 0.1247
+bbox_mAP_s                    : 0.0000
+bbox_mAP_m                    : 0.0036
+bbox_mAP_l                    : 0.2358
+segm_mAP                      : 0.1305
+segm_mAP_50                   : 0.3072
+segm_mAP_75                   : 0.0874
+segm_mAP_s                    : 0.0000
+segm_mAP_m                    : 0.0000
+segm_mAP_l                    : 0.1996
+
+
+==================================================
+REPORT EPOCHE - MMDET COCO EVALUATION
+==================================================
+bbox_mAP                      : 0.1543
+bbox_mAP_50                   : 0.3443
+bbox_mAP_75                   : 0.1220
+bbox_mAP_s                    : 0.0000
+bbox_mAP_m                    : 0.0028
+bbox_mAP_l                    : 0.2324
+segm_mAP                      : 0.1353
+segm_mAP_50                   : 0.3086
+segm_mAP_75                   : 0.0978
+segm_mAP_s                    : 0.0000
+segm_mAP_m                    : 0.0000
+segm_mAP_l                    : 0.2065
+
+
+==================================================
+REPORT EPOCHE - MMDET COCO EVALUATION
+==================================================
+bbox_mAP                      : 0.1544
+bbox_mAP_50                   : 0.3426
+bbox_mAP_75                   : 0.1240
+bbox_mAP_s                    : 0.0000
+bbox_mAP_m                    : 0.0012
+bbox_mAP_l                    : 0.2328
+segm_mAP                      : 0.1284
+segm_mAP_50                   : 0.3047
+segm_mAP_75                   : 0.0832
+segm_mAP_s                    : 0.0000
+segm_mAP_m                    : 0.0000
+segm_mAP_l                    : 0.1959
+
+
+==================================================
+REPORT EPOCHE - MMDET COCO EVALUATION
+==================================================
+bbox_mAP                      : 0.0002
+bbox_mAP_50                   : 0.0008
+bbox_mAP_75                   : 0.0000
+bbox_mAP_s                    : 0.0000
+bbox_mAP_m                    : 0.0001
+bbox_mAP_l                    : 0.0003
+segm_mAP                      : 0.0000
+segm_mAP_50                   : 0.0001
+segm_mAP_75                   : 0.0000
+segm_mAP_s                    : 0.0000
+segm_mAP_m                    : 0.0000
+segm_mAP_l                    : 0.0001
+
+

@@ -133,7 +133,8 @@ img_norm_cfg = dict(
 train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='LoadAnnotations', with_bbox=True, with_mask=True),
-    dict(type='Resize', img_scale=(640, 640), keep_ratio=True),
+    dict(type='Resize', img_scale=(800, 800), keep_ratio=True),
+    dict(type='RandomCrop', crop_size=(500, 500)),
     dict(type='RandomFlip', flip_ratio=0.5),
     dict(
         type='Normalize',
@@ -148,7 +149,7 @@ test_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(
         type='MultiScaleFlipAug',
-        img_scale=(640, 640),
+        img_scale=(800, 800),
         flip=False,
         transforms=[
             dict(type='Resize', keep_ratio=True),
@@ -173,7 +174,8 @@ data = dict(
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(type='LoadAnnotations', with_bbox=True, with_mask=True),
-            dict(type='Resize', img_scale=(640, 640), keep_ratio=True),
+            dict(type='Resize', img_scale=(800, 800), keep_ratio=True),
+            dict(type='RandomCrop', crop_size=(500, 500)),
             dict(type='RandomFlip', flip_ratio=0.5),
             dict(
                 type='Normalize',
@@ -195,7 +197,7 @@ data = dict(
             dict(type='LoadImageFromFile'),
             dict(
                 type='MultiScaleFlipAug',
-                img_scale=(640, 640),
+                img_scale=(800, 800),
                 flip=False,
                 transforms=[
                     dict(type='Resize', keep_ratio=True),
@@ -219,7 +221,7 @@ data = dict(
             dict(type='LoadImageFromFile'),
             dict(
                 type='MultiScaleFlipAug',
-                img_scale=(640, 640),
+                img_scale=(800, 800),
                 flip=False,
                 transforms=[
                     dict(type='Resize', keep_ratio=True),
@@ -256,8 +258,8 @@ lr_config = dict(
     warmup='linear',
     warmup_iters=500,
     warmup_ratio=0.001,
-    step=[8, 11])
-runner = dict(type='EpochBasedRunner', max_epochs=12)
+    step=[16, 22])
+runner = dict(type='EpochBasedRunner', max_epochs=24)
 checkpoint_config = dict(interval=1, max_keep_ckpts=3, save_last=True)
 log_config = dict(interval=50, hooks=[dict(type='TextLoggerHook')])
 custom_hooks = [dict(type='NumClassCheckHook')]
@@ -269,6 +271,7 @@ workflow = [('train', 1)]
 custom_imports = dict(imports=['metriche_dataset'], allow_failed_imports=False)
 pretrained = 'pretrained/deit_small_patch16_224-cd65a155.pth'
 classes = ('AM', 'HC', 'NU')
+fp16 = dict(loss_scale=512.0)
 work_dir = './work_dirs/Config_fold2'
 auto_resume = False
 gpu_ids = range(0, 1)

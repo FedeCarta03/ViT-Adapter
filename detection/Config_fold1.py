@@ -16,7 +16,7 @@ model = dict(
         _delete_=True,
         type='ViTAdapter',
         patch_size=16,
-        embed_dim=384,         # Cambiato per Tiny (Base era 768) Tiny = 192 Small=364
+        embed_dim=384,         # Cambiato per Tiny (Base era 768) Tiny = 192 Small=384
         depth=12,
         num_heads=6,           # Cambiato per Tiny (Base era 12) Tiny = 3 Small=6
         mlp_ratio=4,
