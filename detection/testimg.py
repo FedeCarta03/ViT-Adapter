@@ -7,9 +7,9 @@ import mmcv
 # 1. IMPOSTA I PERCORSI (Modificali se serve)
 # ==========================================
 config_file = 'Config_fold2.py' 
-checkpoint_file = 'work_dirs/Config_fold2/latest.pth' 
-img_path = 'dataset/AIR_LEISH_dataset/Set1/Images/20250328_CCimage4.png' 
-out_file = 'risultato_test4.jpg' 
+checkpoint_file = 'work_dirs/Config_fold2_1/latest.pth' 
+img_path = 'AMimage.png' 
+out_file = 'risultato_testAm.jpg' 
 
 # ==========================================
 # 2. INIZIALIZZA IL MODELLO

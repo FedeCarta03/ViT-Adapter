@@ -3,7 +3,7 @@
 _base_ = [
     'configs/_base_/models/mask_rcnn_r50_fpn.py',
     'configs/_base_/datasets/coco_instance.py',
-    'configs/_base_/schedules/schedule_2x.py', # Inizia con 1x (12 epoche) per testare
+    'configs/_base_/schedules/schedule_1x.py', # Inizia con 1x (12 epoche) per testare
     'configs/_base_/default_runtime.py'
 ]
 
@@ -58,7 +58,7 @@ train_pipeline = [
     dict(type='LoadAnnotations', with_bbox=True, with_mask=True),
     dict(type='Resize', img_scale=(800, 800), keep_ratio=True), # Ridotto per stabilitÃ 
 
-    dict(type='RandomCrop', crop_size=(500, 500)),
+    #dict(type='RandomCrop', crop_size=(500, 500)),
 
     dict(type='RandomFlip', flip_ratio=0.5),
     dict(type='Normalize', **img_norm_cfg),
