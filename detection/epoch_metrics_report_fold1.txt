@@ -1,0 +1,17 @@
+==================================================
+REPORT EPOCHE - MMDET COCO EVALUATION
+==================================================
+bbox_mAP                      : 0.0013
+bbox_mAP_50                   : 0.0070
+bbox_mAP_75                   : 0.0000
+bbox_mAP_s                    : 0.0000
+bbox_mAP_m                    : 0.0002
+bbox_mAP_l                    : 0.0014
+segm_mAP                      : 0.0004
+segm_mAP_50                   : 0.0024
+segm_mAP_75                   : 0.0000
+segm_mAP_s                    : 0.0000
+segm_mAP_m                    : 0.0000
+segm_mAP_l                    : 0.0004
+
+

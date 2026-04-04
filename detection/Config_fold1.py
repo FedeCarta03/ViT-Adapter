@@ -90,20 +90,20 @@ data = dict(
     train=dict(
         type='CocoDataset',
         classes=classes,
-        ann_file='dataset/AIR-Leish_dataset/AIR-Leish_dataset/Set1/Set1_annotations.json',
-        img_prefix='dataset/AIR-Leish_dataset/AIR-Leish_dataset/Set1/Images/',
+        ann_file='dataset/AIR_LEISH_dataset/Set1/_annotations.coco.json',
+        img_prefix='dataset/AIR_LEISH_dataset/Set1/Images/',
         pipeline=train_pipeline),
     val=dict(
         type='CocoDataset',
         classes=classes,
-        ann_file='dataset/AIR-Leish_dataset/AIR-Leish_dataset/Set2/Set2_annotations.json',
-        img_prefix='dataset/AIR-Leish_dataset/AIR-Leish_dataset/Set2/Images/',
+        ann_file='dataset/AIR_LEISH_dataset/Set2/_annotations.coco.json',
+        img_prefix='dataset/AIR_LEISH_dataset/Set2/Images/',
         pipeline=test_pipeline),
     test=dict(
         type='CocoDataset',
         classes=classes,
-        ann_file='dataset/AIR-Leish_dataset/AIR-Leish_dataset/Set2/Set2_annotations.json',
-        img_prefix='dataset/AIR-Leish_dataset/AIR-Leish_dataset/Set2/Images/',
+        ann_file='dataset/AIR_LEISH_dataset/Set2/_annotations.coco.json',
+        img_prefix='dataset/AIR_LEISH_dataset/Set2/Images/',
         pipeline=test_pipeline)
 )
 
