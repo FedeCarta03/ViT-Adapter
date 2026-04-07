@@ -157,3 +157,5 @@ segmentation/work_dirs2/*
 
 
 detection/dataset/*
+detection/risultati_ensemble_detection/*
+detection/work_dirs/*
