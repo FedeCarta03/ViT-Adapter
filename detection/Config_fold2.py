@@ -3,14 +3,14 @@
 _base_ = [
     'configs/_base_/models/mask_rcnn_r50_fpn.py',
     'configs/_base_/datasets/coco_instance.py',
-    'configs/_base_/schedules/schedule_1x.py', # Inizia con 1x (12 epoche) per testare
+    'configs/_base_/schedules/schedule_2x.py', # Inizia con 1x (12 epoche) per testare
     'configs/_base_/default_runtime.py'
 ]
 
 custom_imports = dict(imports=['metriche_dataset'], allow_failed_imports=False)
 
 # 1. PESI PREADDRESTRATI (Assicurati che il file sia in questa cartella)
-pretrained = 'pretrained/deit_small_patch16_224-cd65a155.pth'
+pretrained = 'pretrained/deit_tiny_patch16_224-a1311bcf.pth'
 
 # 2. CONFIGURAZIONE MODELLO (Specifico per Tiny)
 model = dict(
@@ -18,9 +18,9 @@ model = dict(
         _delete_=True,
         type='ViTAdapter',
         patch_size=16,
-        embed_dim=384,         # Cambiato per Tiny (Base era 768) Tiny = 192 Small=384
+        embed_dim=192,         # Cambiato per Tiny (Base era 768) Tiny = 192 Small=384
         depth=12,
-        num_heads=6,           # Cambiato per Tiny (Base era 12) Tiny = 3 Small=6
+        num_heads=3,           # Cambiato per Tiny (Base era 12) Tiny = 3 Small=6
         mlp_ratio=4,
         drop_path_rate=0.3,    # Ridotto per modelli piccoli
         conv_inplane=64,
@@ -37,12 +37,19 @@ model = dict(
         pretrained=pretrained),
     neck=dict(
         type='FPN',
-        in_channels=[384, 384, 384, 384], # Deve corrispondere a embed_dim
+        in_channels=[192, 192, 192, 192], # Deve corrispondere a embed_dim
         out_channels=256,
         num_outs=5),
     roi_head=dict(
         bbox_head=dict(num_classes=3),
         mask_head=dict(num_classes=3)
+    ),
+    test_cfg=dict(
+        rcnn=dict(
+            score_thr=0.05,
+            nms=dict(type='nms', iou_threshold=0.3), # Aiuta a separare oggetti molto vicini
+            max_per_img=300,                         # <--- Aumentato da 100 a 300
+            mask_thr_binary=0.5)
     )
 )
 
@@ -58,7 +65,7 @@ train_pipeline = [
     dict(type='LoadAnnotations', with_bbox=True, with_mask=True),
     dict(type='Resize', img_scale=(800, 800), keep_ratio=True), # Ridotto per stabilitÃ 
 
-    #dict(type='RandomCrop', crop_size=(500, 500)),
+    dict(type='RandomCrop', crop_size=(640, 640)),
 
     dict(type='RandomFlip', flip_ratio=0.5),
     dict(type='Normalize', **img_norm_cfg),
@@ -96,20 +103,20 @@ data = dict(
     train=dict(
         type='AirLeishReportDataset',
         classes=classes,
-        ann_file='dataset/AIR_LEISH_dataset/Set2/_annotations.coco.json',
-        img_prefix='dataset/AIR_LEISH_dataset/Set2/Images/',
+        ann_file='dataset/MergeDataset/KFold_Annotations/fold1_train.json',
+        img_prefix='dataset/MergeDataset/Immagini/',
         pipeline=train_pipeline),
     val=dict(
         type='AirLeishReportDataset',
         classes=classes,
-        ann_file='dataset/AIR_LEISH_dataset/Set1/_annotations.coco.json',
-        img_prefix='dataset/AIR_LEISH_dataset/Set1/Images/',
+        ann_file='dataset/MergeDataset/KFold_Annotations/fold1_train.json',
+        img_prefix='dataset/MergeDataset/Immagini/',
         pipeline=test_pipeline),
     test=dict(
         type='AirLeishReportDataset',
         classes=classes,
-        ann_file='dataset/AIR_LEISH_dataset/Set1/_annotations.coco.json',
-        img_prefix='dataset/AIR_LEISH_dataset/Set1/Images/',
+        ann_file='dataset/MergeDataset/KFold_Annotations/fold1_train.json',
+        img_prefix='dataset/MergeDataset/Immagini/',
         pipeline=test_pipeline)
 )
 
@@ -123,7 +130,7 @@ optimizer = dict(
             'norm': dict(decay_mult=0.),
             'bias': dict(decay_mult=0.)
         }))
-optimizer_config = dict(grad_clip=None)
+optimizer_config = dict(_delete_=True, grad_clip=dict(max_norm=35, norm_type=2))
 
 # 7. RUNTIME & EVALUATION
 evaluation = dict(interval=1, metric=['bbox', 'segm'], save_best='auto', classwise=True)

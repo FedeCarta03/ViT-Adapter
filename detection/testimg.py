@@ -6,10 +6,10 @@ import mmcv
 # ==========================================
 # 1. IMPOSTA I PERCORSI (Modificali se serve)
 # ==========================================
-config_file = 'Config_fold2.py' 
+config_file = 'work_dirs/Config_fold2_1/Config_fold2.py' 
 checkpoint_file = 'work_dirs/Config_fold2_1/latest.pth' 
-img_path = 'AMimage.png' 
-out_file = 'risultato_testAm.jpg' 
+img_path = 'dataset/MergeDataset/Immagini/set1_20250328_CCimage1.png' 
+out_file = 'risultato_test1.jpg' 
 
 # ==========================================
 # 2. INIZIALIZZA IL MODELLO
