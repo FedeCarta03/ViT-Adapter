@@ -43,7 +43,7 @@ def applica_fix_a_tutto(cartella_input, cartella_output):
 
 if __name__ == "__main__":
     # Assicurati che questi percorsi siano corretti per il tuo ambiente
-    PATH_INPUT = "data_medical/27919209/MSLesSeg_Dataset_PNG"
-    PATH_OUTPUT = "data_medical/27919209/MSLesSeg_Dataset_PNG_Fixed"
+    PATH_INPUT = "data_medical/WbcMSBench_Merged/labels_all"
+    PATH_OUTPUT = "data_medical/WbcMSBench_Merged/labels_fix"
 
     applica_fix_a_tutto(PATH_INPUT, PATH_OUTPUT)
