@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Definisci il file di configurazione base
-CONFIG="configs/vit_adapter/medseg_custom_copy.py"
+CONFIG="configs/vit_adapter/medseg_custom_WBC.py"
 
 # Ciclo for da 1 a 5 per i nostri Fold
 for FOLD in {1..5}
