@@ -159,3 +159,5 @@ segmentation/work_dirs2/*
 detection/dataset/*
 detection/risultati_ensemble_detection/*
 detection/work_dirs/*
+
+!segmentation/mmseg_custom/datasets/custom_metrics_dataset.py

@@ -58,26 +58,26 @@ data = dict(
     train=dict(
         type=dataset_type,
         data_root=data_root,
-        img_dir='images_all',
+        img_dir='images_fix',
         ann_dir='labels_fix',
         split='stratified_folds/fold_1/train.txt',
         img_suffix='.png',      # Cerca i PNG
         seg_map_suffix='.png',  # Maschere PNG
         pipeline=train_pipeline,
         classes=('background', 'cytoplasm', 'nucleus'),
-        palette=[[0, 0, 0], [128, 128, 128], [255, 255, 255]]),
+        palette=[[0, 0, 0], [0, 255, 0], [255, 0, 0]]),
     
     val=dict(
         type=dataset_type,
         data_root=data_root,
-        img_dir='images_all',
+        img_dir='images_fix',
         ann_dir='labels_fix',
         split='stratified_folds/fold_1/val.txt',
         img_suffix='.png',
         seg_map_suffix='.png',
         pipeline=test_pipeline,
         classes=('background', 'cytoplasm', 'nucleus'),
-        palette=[[0, 0, 0], [128, 128, 128], [255, 255, 255]]),
+        palette=[[0, 0, 0], [0, 255, 0], [255, 0, 0]]),
         
     test=dict(
         type=dataset_type,
@@ -88,7 +88,7 @@ data = dict(
         seg_map_suffix='.png',
         pipeline=test_pipeline,
         classes=('background', 'cytoplasm', 'nucleus'),
-        palette=[[0, 0, 0], [128, 128, 128], [255, 255, 255]]),
+        palette=[[0, 0, 0], [0, 255, 0], [255, 0, 0]]),
 )
 
 # --- MODIFICA MODELLO (GROUP NORM) ---
