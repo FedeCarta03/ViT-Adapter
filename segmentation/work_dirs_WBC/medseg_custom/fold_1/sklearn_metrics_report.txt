@@ -1,0 +1,72 @@
+==================================================
+REPORT METRICHE AVANZATO - 3 CLASSI
+==================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[11493112    44483     6900]
+ [  236335  2690691    20742]
+ [     296   271707  1750806]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):    11493112.0
+  Vero Negativo (TN):     4733946.0
+  Falso Positivo (FP):     236631.0
+  Falso Negativo (FN):      51383.0
+
+Metriche:
+  Pixel Accuracy:      0.9826
+  IoU (Jaccard):       0.9756
+  Dice (F1-Score):     0.9876
+  Precision:           0.9798
+  Recall/Sensitivity:  0.9955
+  Specificity:         0.9524
+  Balanced Accuracy:   0.9740
+  MCC:                 0.9585
+
+--- Dettaglio Classe: CYTOPLASM ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     2690691.0
+  Vero Negativo (TN):    13251114.0
+  Falso Positivo (FP):     316190.0
+  Falso Negativo (FN):     257077.0
+
+Metriche:
+  Pixel Accuracy:      0.9653
+  IoU (Jaccard):       0.8244
+  Dice (F1-Score):     0.9037
+  Precision:           0.8948
+  Recall/Sensitivity:  0.9128
+  Specificity:         0.9767
+  Balanced Accuracy:   0.9447
+  MCC:                 0.8826
+
+--- Dettaglio Classe: NUCLEUS ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     1750806.0
+  Vero Negativo (TN):    14464621.0
+  Falso Positivo (FP):      27642.0
+  Falso Negativo (FN):     272003.0
+
+Metriche:
+  Pixel Accuracy:      0.9819
+  IoU (Jaccard):       0.8539
+  Dice (F1-Score):     0.9212
+  Precision:           0.9845
+  Recall/Sensitivity:  0.8655
+  Specificity:         0.9981
+  Balanced Accuracy:   0.9318
+  MCC:                 0.9134
+
+--------------------------------------------------
+[MEDIE MACRO (Macro-Average)]
+  Mean Pixel Accuracy: 0.9766
+  Mean IoU (mIoU):     0.8846
+  Mean Dice (mF1):     0.9375
+  Mean Precision:      0.9530
+  Mean Recall/Sens.:   0.9246
+  Mean Specificity:    0.9757
+  Mean Balanced Acc:   0.9502
+  Mean MCC:            0.9182
+==================================================
+
