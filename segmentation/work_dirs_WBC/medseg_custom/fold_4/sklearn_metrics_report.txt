@@ -1,0 +1,720 @@
+==================================================
+REPORT METRICHE AVANZATO - 3 CLASSI
+==================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[11628814    70034      359]
+ [  153353  2638345    87588]
+ [     994   114720  1820865]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):    11628814.0
+  Vero Negativo (TN):     4661518.0
+  Falso Positivo (FP):     154347.0
+  Falso Negativo (FN):      70393.0
+
+Metriche:
+  Pixel Accuracy:      0.9864
+  IoU (Jaccard):       0.9810
+  Dice (F1-Score):     0.9904
+  Precision:           0.9869
+  Recall/Sensitivity:  0.9940
+  Specificity:         0.9680
+  Balanced Accuracy:   0.9810
+  MCC:                 0.9670
+
+--- Dettaglio Classe: CYTOPLASM ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     2638345.0
+  Vero Negativo (TN):    13451032.0
+  Falso Positivo (FP):     184754.0
+  Falso Negativo (FN):     240941.0
+
+Metriche:
+  Pixel Accuracy:      0.9742
+  IoU (Jaccard):       0.8611
+  Dice (F1-Score):     0.9253
+  Precision:           0.9346
+  Recall/Sensitivity:  0.9163
+  Specificity:         0.9865
+  Balanced Accuracy:   0.9514
+  MCC:                 0.9098
+
+--- Dettaglio Classe: NUCLEUS ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     1820865.0
+  Vero Negativo (TN):    14490546.0
+  Falso Positivo (FP):      87947.0
+  Falso Negativo (FN):     115714.0
+
+Metriche:
+  Pixel Accuracy:      0.9877
+  IoU (Jaccard):       0.8994
+  Dice (F1-Score):     0.9470
+  Precision:           0.9539
+  Recall/Sensitivity:  0.9402
+  Specificity:         0.9940
+  Balanced Accuracy:   0.9671
+  MCC:                 0.9401
+
+--------------------------------------------------
+[MEDIE MACRO (Macro-Average)]
+  Mean Pixel Accuracy: 0.9828
+  Mean IoU (mIoU):     0.9138
+  Mean Dice (mF1):     0.9543
+  Mean Precision:      0.9585
+  Mean Recall/Sens.:   0.9502
+  Mean Specificity:    0.9828
+  Mean Balanced Acc:   0.9665
+  Mean MCC:            0.9390
+==================================================
+
+==================================================
+REPORT METRICHE AVANZATO - 3 CLASSI
+==================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[11585101   114106        0]
+ [   51321  2791200    36765]
+ [      39   151534  1785006]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):    11585101.0
+  Vero Negativo (TN):     4764505.0
+  Falso Positivo (FP):      51360.0
+  Falso Negativo (FN):     114106.0
+
+Metriche:
+  Pixel Accuracy:      0.9900
+  IoU (Jaccard):       0.9859
+  Dice (F1-Score):     0.9929
+  Precision:           0.9956
+  Recall/Sensitivity:  0.9902
+  Specificity:         0.9893
+  Balanced Accuracy:   0.9898
+  MCC:                 0.9759
+
+--- Dettaglio Classe: CYTOPLASM ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     2791200.0
+  Vero Negativo (TN):    13370146.0
+  Falso Positivo (FP):     265640.0
+  Falso Negativo (FN):      88086.0
+
+Metriche:
+  Pixel Accuracy:      0.9786
+  IoU (Jaccard):       0.8875
+  Dice (F1-Score):     0.9404
+  Precision:           0.9131
+  Recall/Sensitivity:  0.9694
+  Specificity:         0.9805
+  Balanced Accuracy:   0.9750
+  MCC:                 0.9280
+
+--- Dettaglio Classe: NUCLEUS ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     1785006.0
+  Vero Negativo (TN):    14541728.0
+  Falso Positivo (FP):      36765.0
+  Falso Negativo (FN):     151573.0
+
+Metriche:
+  Pixel Accuracy:      0.9886
+  IoU (Jaccard):       0.9046
+  Dice (F1-Score):     0.9499
+  Precision:           0.9798
+  Recall/Sensitivity:  0.9217
+  Specificity:         0.9975
+  Balanced Accuracy:   0.9596
+  MCC:                 0.9440
+
+--------------------------------------------------
+[MEDIE MACRO (Macro-Average)]
+  Mean Pixel Accuracy: 0.9857
+  Mean IoU (mIoU):     0.9260
+  Mean Dice (mF1):     0.9611
+  Mean Precision:      0.9628
+  Mean Recall/Sens.:   0.9605
+  Mean Specificity:    0.9891
+  Mean Balanced Acc:   0.9748
+  Mean MCC:            0.9493
+==================================================
+
+==================================================
+REPORT METRICHE AVANZATO - 3 CLASSI
+==================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[11656568    42639        0]
+ [  129731  2722933    26622]
+ [    1861   195962  1738756]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):    11656568.0
+  Vero Negativo (TN):     4684273.0
+  Falso Positivo (FP):     131592.0
+  Falso Negativo (FN):      42639.0
+
+Metriche:
+  Pixel Accuracy:      0.9895
+  IoU (Jaccard):       0.9853
+  Dice (F1-Score):     0.9926
+  Precision:           0.9888
+  Recall/Sensitivity:  0.9964
+  Specificity:         0.9727
+  Balanced Accuracy:   0.9845
+  MCC:                 0.9744
+
+--- Dettaglio Classe: CYTOPLASM ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     2722933.0
+  Vero Negativo (TN):    13397185.0
+  Falso Positivo (FP):     238601.0
+  Falso Negativo (FN):     156353.0
+
+Metriche:
+  Pixel Accuracy:      0.9761
+  IoU (Jaccard):       0.8733
+  Dice (F1-Score):     0.9324
+  Precision:           0.9194
+  Recall/Sensitivity:  0.9457
+  Specificity:         0.9825
+  Balanced Accuracy:   0.9641
+  MCC:                 0.9180
+
+--- Dettaglio Classe: NUCLEUS ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     1738756.0
+  Vero Negativo (TN):    14551871.0
+  Falso Positivo (FP):      26622.0
+  Falso Negativo (FN):     197823.0
+
+Metriche:
+  Pixel Accuracy:      0.9864
+  IoU (Jaccard):       0.8857
+  Dice (F1-Score):     0.9394
+  Precision:           0.9849
+  Recall/Sensitivity:  0.8978
+  Specificity:         0.9982
+  Balanced Accuracy:   0.9480
+  MCC:                 0.9330
+
+--------------------------------------------------
+[MEDIE MACRO (Macro-Average)]
+  Mean Pixel Accuracy: 0.9840
+  Mean IoU (mIoU):     0.9148
+  Mean Dice (mF1):     0.9548
+  Mean Precision:      0.9644
+  Mean Recall/Sens.:   0.9466
+  Mean Specificity:    0.9845
+  Mean Balanced Acc:   0.9655
+  Mean MCC:            0.9418
+==================================================
+
+==================================================
+REPORT METRICHE AVANZATO - 3 CLASSI
+==================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[11650351    48850        6]
+ [   99792  2727399    52095]
+ [      41    98762  1837776]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):    11650351.0
+  Vero Negativo (TN):     4716032.0
+  Falso Positivo (FP):      99833.0
+  Falso Negativo (FN):      48856.0
+
+Metriche:
+  Pixel Accuracy:      0.9910
+  IoU (Jaccard):       0.9874
+  Dice (F1-Score):     0.9937
+  Precision:           0.9915
+  Recall/Sensitivity:  0.9958
+  Specificity:         0.9793
+  Balanced Accuracy:   0.9875
+  MCC:                 0.9782
+
+--- Dettaglio Classe: CYTOPLASM ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     2727399.0
+  Vero Negativo (TN):    13488174.0
+  Falso Positivo (FP):     147612.0
+  Falso Negativo (FN):     151887.0
+
+Metriche:
+  Pixel Accuracy:      0.9819
+  IoU (Jaccard):       0.9011
+  Dice (F1-Score):     0.9480
+  Precision:           0.9487
+  Recall/Sensitivity:  0.9472
+  Specificity:         0.9892
+  Balanced Accuracy:   0.9682
+  MCC:                 0.9370
+
+--- Dettaglio Classe: NUCLEUS ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     1837776.0
+  Vero Negativo (TN):    14526392.0
+  Falso Positivo (FP):      52101.0
+  Falso Negativo (FN):      98803.0
+
+Metriche:
+  Pixel Accuracy:      0.9909
+  IoU (Jaccard):       0.9241
+  Dice (F1-Score):     0.9606
+  Precision:           0.9724
+  Recall/Sensitivity:  0.9490
+  Specificity:         0.9964
+  Balanced Accuracy:   0.9727
+  MCC:                 0.9555
+
+--------------------------------------------------
+[MEDIE MACRO (Macro-Average)]
+  Mean Pixel Accuracy: 0.9879
+  Mean IoU (mIoU):     0.9375
+  Mean Dice (mF1):     0.9674
+  Mean Precision:      0.9709
+  Mean Recall/Sens.:   0.9640
+  Mean Specificity:    0.9883
+  Mean Balanced Acc:   0.9762
+  Mean MCC:            0.9569
+==================================================
+
+==================================================
+REPORT METRICHE AVANZATO - 3 CLASSI
+==================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[11567462   131470      275]
+ [   41822  2753437    84027]
+ [       2    60978  1875599]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):    11567462.0
+  Vero Negativo (TN):     4774041.0
+  Falso Positivo (FP):      41824.0
+  Falso Negativo (FN):     131745.0
+
+Metriche:
+  Pixel Accuracy:      0.9895
+  IoU (Jaccard):       0.9852
+  Dice (F1-Score):     0.9926
+  Precision:           0.9964
+  Recall/Sensitivity:  0.9887
+  Specificity:         0.9913
+  Balanced Accuracy:   0.9900
+  MCC:                 0.9748
+
+--- Dettaglio Classe: CYTOPLASM ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     2753437.0
+  Vero Negativo (TN):    13443338.0
+  Falso Positivo (FP):     192448.0
+  Falso Negativo (FN):     125849.0
+
+Metriche:
+  Pixel Accuracy:      0.9807
+  IoU (Jaccard):       0.8964
+  Dice (F1-Score):     0.9454
+  Precision:           0.9347
+  Recall/Sensitivity:  0.9563
+  Specificity:         0.9859
+  Balanced Accuracy:   0.9711
+  MCC:                 0.9338
+
+--- Dettaglio Classe: NUCLEUS ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     1875599.0
+  Vero Negativo (TN):    14494191.0
+  Falso Positivo (FP):      84302.0
+  Falso Negativo (FN):      60980.0
+
+Metriche:
+  Pixel Accuracy:      0.9912
+  IoU (Jaccard):       0.9281
+  Dice (F1-Score):     0.9627
+  Precision:           0.9570
+  Recall/Sensitivity:  0.9685
+  Specificity:         0.9942
+  Balanced Accuracy:   0.9814
+  MCC:                 0.9578
+
+--------------------------------------------------
+[MEDIE MACRO (Macro-Average)]
+  Mean Pixel Accuracy: 0.9871
+  Mean IoU (mIoU):     0.9366
+  Mean Dice (mF1):     0.9669
+  Mean Precision:      0.9627
+  Mean Recall/Sens.:   0.9712
+  Mean Specificity:    0.9905
+  Mean Balanced Acc:   0.9808
+  Mean MCC:            0.9554
+==================================================
+
+==================================================
+REPORT METRICHE AVANZATO - 3 CLASSI
+==================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[11606713    92494        0]
+ [   50584  2776665    52037]
+ [      10    94551  1842018]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):    11606713.0
+  Vero Negativo (TN):     4765271.0
+  Falso Positivo (FP):      50594.0
+  Falso Negativo (FN):      92494.0
+
+Metriche:
+  Pixel Accuracy:      0.9913
+  IoU (Jaccard):       0.9878
+  Dice (F1-Score):     0.9939
+  Precision:           0.9957
+  Recall/Sensitivity:  0.9921
+  Specificity:         0.9895
+  Balanced Accuracy:   0.9908
+  MCC:                 0.9791
+
+--- Dettaglio Classe: CYTOPLASM ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     2776665.0
+  Vero Negativo (TN):    13448741.0
+  Falso Positivo (FP):     187045.0
+  Falso Negativo (FN):     102621.0
+
+Metriche:
+  Pixel Accuracy:      0.9825
+  IoU (Jaccard):       0.9055
+  Dice (F1-Score):     0.9504
+  Precision:           0.9369
+  Recall/Sensitivity:  0.9644
+  Specificity:         0.9863
+  Balanced Accuracy:   0.9753
+  MCC:                 0.9399
+
+--- Dettaglio Classe: NUCLEUS ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     1842018.0
+  Vero Negativo (TN):    14526456.0
+  Falso Positivo (FP):      52037.0
+  Falso Negativo (FN):      94561.0
+
+Metriche:
+  Pixel Accuracy:      0.9911
+  IoU (Jaccard):       0.9263
+  Dice (F1-Score):     0.9617
+  Precision:           0.9725
+  Recall/Sensitivity:  0.9512
+  Specificity:         0.9964
+  Balanced Accuracy:   0.9738
+  MCC:                 0.9568
+
+--------------------------------------------------
+[MEDIE MACRO (Macro-Average)]
+  Mean Pixel Accuracy: 0.9883
+  Mean IoU (mIoU):     0.9399
+  Mean Dice (mF1):     0.9687
+  Mean Precision:      0.9684
+  Mean Recall/Sens.:   0.9692
+  Mean Specificity:    0.9907
+  Mean Balanced Acc:   0.9800
+  Mean MCC:            0.9586
+==================================================
+
+==================================================
+REPORT METRICHE AVANZATO - 3 CLASSI
+==================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[11634744    64463        0]
+ [   76385  2769573    33328]
+ [      59   114852  1821668]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):    11634744.0
+  Vero Negativo (TN):     4739421.0
+  Falso Positivo (FP):      76444.0
+  Falso Negativo (FN):      64463.0
+
+Metriche:
+  Pixel Accuracy:      0.9915
+  IoU (Jaccard):       0.9880
+  Dice (F1-Score):     0.9940
+  Precision:           0.9935
+  Recall/Sensitivity:  0.9945
+  Specificity:         0.9841
+  Balanced Accuracy:   0.9893
+  MCC:                 0.9793
+
+--- Dettaglio Classe: CYTOPLASM ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     2769573.0
+  Vero Negativo (TN):    13456471.0
+  Falso Positivo (FP):     179315.0
+  Falso Negativo (FN):     109713.0
+
+Metriche:
+  Pixel Accuracy:      0.9825
+  IoU (Jaccard):       0.9055
+  Dice (F1-Score):     0.9504
+  Precision:           0.9392
+  Recall/Sensitivity:  0.9619
+  Specificity:         0.9868
+  Balanced Accuracy:   0.9744
+  MCC:                 0.9399
+
+--- Dettaglio Classe: NUCLEUS ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     1821668.0
+  Vero Negativo (TN):    14545165.0
+  Falso Positivo (FP):      33328.0
+  Falso Negativo (FN):     114911.0
+
+Metriche:
+  Pixel Accuracy:      0.9910
+  IoU (Jaccard):       0.9247
+  Dice (F1-Score):     0.9609
+  Precision:           0.9820
+  Recall/Sensitivity:  0.9407
+  Specificity:         0.9977
+  Balanced Accuracy:   0.9692
+  MCC:                 0.9561
+
+--------------------------------------------------
+[MEDIE MACRO (Macro-Average)]
+  Mean Pixel Accuracy: 0.9883
+  Mean IoU (mIoU):     0.9394
+  Mean Dice (mF1):     0.9684
+  Mean Precision:      0.9716
+  Mean Recall/Sens.:   0.9657
+  Mean Specificity:    0.9896
+  Mean Balanced Acc:   0.9776
+  Mean MCC:            0.9584
+==================================================
+
+==================================================
+REPORT METRICHE AVANZATO - 3 CLASSI
+==================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[11657748    41455        4]
+ [   98055  2741284    39947]
+ [      25   103575  1832979]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):    11657748.0
+  Vero Negativo (TN):     4717785.0
+  Falso Positivo (FP):      98080.0
+  Falso Negativo (FN):      41459.0
+
+Metriche:
+  Pixel Accuracy:      0.9916
+  IoU (Jaccard):       0.9882
+  Dice (F1-Score):     0.9941
+  Precision:           0.9917
+  Recall/Sensitivity:  0.9965
+  Specificity:         0.9796
+  Balanced Accuracy:   0.9880
+  MCC:                 0.9795
+
+--- Dettaglio Classe: CYTOPLASM ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     2741284.0
+  Vero Negativo (TN):    13490756.0
+  Falso Positivo (FP):     145030.0
+  Falso Negativo (FN):     138002.0
+
+Metriche:
+  Pixel Accuracy:      0.9829
+  IoU (Jaccard):       0.9064
+  Dice (F1-Score):     0.9509
+  Precision:           0.9498
+  Recall/Sensitivity:  0.9521
+  Specificity:         0.9894
+  Balanced Accuracy:   0.9707
+  MCC:                 0.9405
+
+--- Dettaglio Classe: NUCLEUS ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     1832979.0
+  Vero Negativo (TN):    14538542.0
+  Falso Positivo (FP):      39951.0
+  Falso Negativo (FN):     103600.0
+
+Metriche:
+  Pixel Accuracy:      0.9913
+  IoU (Jaccard):       0.9274
+  Dice (F1-Score):     0.9623
+  Precision:           0.9787
+  Recall/Sensitivity:  0.9465
+  Specificity:         0.9973
+  Balanced Accuracy:   0.9719
+  MCC:                 0.9576
+
+--------------------------------------------------
+[MEDIE MACRO (Macro-Average)]
+  Mean Pixel Accuracy: 0.9886
+  Mean IoU (mIoU):     0.9407
+  Mean Dice (mF1):     0.9691
+  Mean Precision:      0.9734
+  Mean Recall/Sens.:   0.9650
+  Mean Specificity:    0.9888
+  Mean Balanced Acc:   0.9769
+  Mean MCC:            0.9592
+==================================================
+
+==================================================
+REPORT METRICHE AVANZATO - 3 CLASSI
+==================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[11658280    40927        0]
+ [  102602  2738844    37840]
+ [      79   103211  1833289]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):    11658280.0
+  Vero Negativo (TN):     4713184.0
+  Falso Positivo (FP):     102681.0
+  Falso Negativo (FN):      40927.0
+
+Metriche:
+  Pixel Accuracy:      0.9913
+  IoU (Jaccard):       0.9878
+  Dice (F1-Score):     0.9939
+  Precision:           0.9913
+  Recall/Sensitivity:  0.9965
+  Specificity:         0.9787
+  Balanced Accuracy:   0.9876
+  MCC:                 0.9789
+
+--- Dettaglio Classe: CYTOPLASM ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     2738844.0
+  Vero Negativo (TN):    13491648.0
+  Falso Positivo (FP):     144138.0
+  Falso Negativo (FN):     140442.0
+
+Metriche:
+  Pixel Accuracy:      0.9828
+  IoU (Jaccard):       0.9059
+  Dice (F1-Score):     0.9506
+  Precision:           0.9500
+  Recall/Sensitivity:  0.9512
+  Specificity:         0.9894
+  Balanced Accuracy:   0.9703
+  MCC:                 0.9402
+
+--- Dettaglio Classe: NUCLEUS ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     1833289.0
+  Vero Negativo (TN):    14540653.0
+  Falso Positivo (FP):      37840.0
+  Falso Negativo (FN):     103290.0
+
+Metriche:
+  Pixel Accuracy:      0.9915
+  IoU (Jaccard):       0.9285
+  Dice (F1-Score):     0.9629
+  Precision:           0.9798
+  Recall/Sensitivity:  0.9467
+  Specificity:         0.9974
+  Balanced Accuracy:   0.9720
+  MCC:                 0.9583
+
+--------------------------------------------------
+[MEDIE MACRO (Macro-Average)]
+  Mean Pixel Accuracy: 0.9885
+  Mean IoU (mIoU):     0.9407
+  Mean Dice (mF1):     0.9691
+  Mean Precision:      0.9737
+  Mean Recall/Sens.:   0.9648
+  Mean Specificity:    0.9885
+  Mean Balanced Acc:   0.9767
+  Mean MCC:            0.9591
+==================================================
+
+==================================================
+REPORT METRICHE AVANZATO - 3 CLASSI
+==================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[11638078    61110       19]
+ [   77487  2751042    50757]
+ [      30    80708  1855841]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):    11638078.0
+  Vero Negativo (TN):     4738348.0
+  Falso Positivo (FP):      77517.0
+  Falso Negativo (FN):      61129.0
+
+Metriche:
+  Pixel Accuracy:      0.9916
+  IoU (Jaccard):       0.9882
+  Dice (F1-Score):     0.9941
+  Precision:           0.9934
+  Recall/Sensitivity:  0.9948
+  Specificity:         0.9839
+  Balanced Accuracy:   0.9893
+  MCC:                 0.9797
+
+--- Dettaglio Classe: CYTOPLASM ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     2751042.0
+  Vero Negativo (TN):    13493968.0
+  Falso Positivo (FP):     141818.0
+  Falso Negativo (FN):     128244.0
+
+Metriche:
+  Pixel Accuracy:      0.9836
+  IoU (Jaccard):       0.9106
+  Dice (F1-Score):     0.9532
+  Precision:           0.9510
+  Recall/Sensitivity:  0.9555
+  Specificity:         0.9896
+  Balanced Accuracy:   0.9725
+  MCC:                 0.9433
+
+--- Dettaglio Classe: NUCLEUS ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):     1855841.0
+  Vero Negativo (TN):    14527717.0
+  Falso Positivo (FP):      50776.0
+  Falso Negativo (FN):      80738.0
+
+Metriche:
+  Pixel Accuracy:      0.9920
+  IoU (Jaccard):       0.9338
+  Dice (F1-Score):     0.9658
+  Precision:           0.9734
+  Recall/Sensitivity:  0.9583
+  Specificity:         0.9965
+  Balanced Accuracy:   0.9774
+  MCC:                 0.9613
+
+--------------------------------------------------
+[MEDIE MACRO (Macro-Average)]
+  Mean Pixel Accuracy: 0.9891
+  Mean IoU (mIoU):     0.9442
+  Mean Dice (mF1):     0.9710
+  Mean Precision:      0.9726
+  Mean Recall/Sens.:   0.9695
+  Mean Specificity:    0.9900
+  Mean Balanced Acc:   0.9798
+  Mean MCC:            0.9614
+==================================================
+

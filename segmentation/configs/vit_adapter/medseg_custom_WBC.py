@@ -65,7 +65,7 @@ data = dict(
         seg_map_suffix='.png',  # Maschere PNG
         pipeline=train_pipeline,
         classes=('background', 'cytoplasm', 'nucleus'),
-        palette=[[0, 0, 0], [0, 255, 0], [255, 0, 0]]),
+        palette=[[0, 0, 0], [174, 174, 174], [255, 255, 255]]),
     
     val=dict(
         type=dataset_type,
@@ -77,7 +77,7 @@ data = dict(
         seg_map_suffix='.png',
         pipeline=test_pipeline,
         classes=('background', 'cytoplasm', 'nucleus'),
-        palette=[[0, 0, 0], [0, 255, 0], [255, 0, 0]]),
+        palette=[[0, 0, 0], [174, 174, 174], [255, 255, 255]]),
         
     test=dict(
         type=dataset_type,

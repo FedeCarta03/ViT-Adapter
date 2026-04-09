@@ -114,7 +114,7 @@ data = dict(
             dict(type='Collect', keys=['img', 'gt_semantic_seg'])
         ],
         split=
-        '/home/jacopo/Git/ViT-Adapter/segmentation/data_medical/WbcMSBench_Merged/stratified_folds/fold_1/train.txt',
+        '/home/fede/ViT-Adapter/segmentation/data_medical/WbcMSBench_Merged/stratified_folds/fold_1/train.txt',
         img_suffix='.png',
         seg_map_suffix='.png',
         classes=('background', 'cytoplasm', 'nucleus'),
@@ -148,7 +148,7 @@ data = dict(
                 ])
         ],
         split=
-        '/home/jacopo/Git/ViT-Adapter/segmentation/data_medical/WbcMSBench_Merged/stratified_folds/fold_1/val.txt',
+        '/home/fede/ViT-Adapter/segmentation/data_medical/WbcMSBench_Merged/stratified_folds/fold_1/val.txt',
         img_suffix='.png',
         seg_map_suffix='.png',
         classes=('background', 'cytoplasm', 'nucleus'),
