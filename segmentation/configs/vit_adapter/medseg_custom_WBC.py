@@ -88,7 +88,7 @@ data = dict(
         seg_map_suffix='.png',
         pipeline=test_pipeline,
         classes=('background', 'cytoplasm', 'nucleus'),
-        palette=[[0, 0, 0], [0, 255, 0], [255, 0, 0]]),
+        palette=[[0, 0, 0], [174, 174, 174], [255, 255, 255]]),
 )
 
 # --- MODIFICA MODELLO (GROUP NORM) ---
