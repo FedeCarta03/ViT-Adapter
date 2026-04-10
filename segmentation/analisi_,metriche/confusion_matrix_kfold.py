@@ -4,11 +4,11 @@ import matplotlib.pyplot as plt
 
 # 1. INSERISCI QUI LE TUE 5 MATRICI (Sostituisci i dati finti con i tuoi reali)
 # Formato: lista di liste o array numpy 2x2
-fold_1 = [[53144900,   294247], [  786773,  4756480]]
-fold_2 = [[53281524,   367319], [  649372,  4684185]] # Esempio fittizio
-fold_3 = [[53156836,   417178], [  948195,  4460191]] # Esempio fittizio
-fold_4 = [[53991148,   436053], [  780029,  3775170]] # Esempio fittizio
-fold_5 = [[52323895,   684729], [  649574,  5062058]] # Esempio fittizio
+fold_1 = [[11477474,   60608, 6413], [  121494,  2773418, 52856], [11, 95137, 1927661]]
+fold_2 = [[11619249,   102788, 4098], [  79414,  2840326, 42691], [2, 81269, 1745235]] 
+fold_3 = [[11785255,   59611, 38], [  103269,  2593345, 47907], [184, 70386, 1855077]]
+fold_4 = [[11638078,   61110, 19], [  77487,  2571042, 50757], [30, 80708, 1855841]]
+fold_5 = [[11412977,   63601, 23], [  83001,  2721769, 38363], [1, 90314, 1842879]] 
 
 # Raggruppiamo le matrici in un singolo array numpy tridimensionale
 matrices = np.array([fold_1, fold_2, fold_3, fold_4, fold_5])
@@ -56,8 +56,8 @@ plt.ylabel("True Label", fontsize=14)
 plt.xlabel("Predicted Label", fontsize=14)
 
 # Imposta i nomi delle classi (modifica 'Classe 0' e 'Classe 1' con i tuoi)
-plt.xticks(ticks=[0.5, 1.5], labels=['Background', 'Lesion'], fontsize=12)
-plt.yticks(ticks=[0.5, 1.5], labels=['Background', 'Lesion'], fontsize=12, rotation=0)
+plt.xticks(ticks=[0.5, 1.5, 2.5], labels=['Background', 'Cytoplasm', 'Nucleus'], fontsize=12)
+plt.yticks(ticks=[0.5, 1.5, 2.5], labels=['Background', 'Cytoplasm', 'Nucleus'], fontsize=12, rotation=0)
 
 # Salva l'immagine in alta risoluzione
 plt.tight_layout()
