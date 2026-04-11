@@ -21,7 +21,7 @@ def esegui_ensemble():
     
     # Controlla che i path dei tuoi checkpoint siano corretti
     # Esempio: 'work_dirs/il_tuo_config/fold_1/latest.pth'
-    checkpoints = [f'work_dirs_Lesion/medseg_custom/fold_1/{nome_pesi}' for i in range(1, 2)]
+    checkpoints = [f'work_dirs_Lesion/medseg_custom/fold_{i}/{nome_pesi}' for i in range(1, 6)]
     
     os.makedirs(cartella_output, exist_ok=True)
     
