@@ -9,19 +9,19 @@ from mmseg.apis import init_segmentor, inference_segmentor
 
 def esegui_ensemble():
     # --- CONFIGURAZIONE PERCORSI (AGGIORNA QUESTI!) ---
-    config_file = 'configs/vit_adapter/medseg_custom_Lesion.py' # Il tuo config
+    config_file = 'configs/vit_adapter/medseg_custom_Lesion_copy.py' # Il tuo config
     
     # La cartella dove hai salvato i PNG multi-modali di test
-    cartella_test = 'data_medical/27919209/MSLesSeg3C/test'
+    cartella_test = 'data_medical/27919209/MSLesSeg3C/test/images'
     
     # Dove verranno salvate le immagini finali con l'overlay colorato
-    cartella_output = './risultati_visivi_ensemble_les' 
+    cartella_output = './risultati_visivi_ensemble_les_copy' 
     
     nome_pesi = 'latest.pth' 
     
     # Controlla che i path dei tuoi checkpoint siano corretti
     # Esempio: 'work_dirs/il_tuo_config/fold_1/latest.pth'
-    checkpoints = [f'work_dirs_Lesion/medseg_custom/fold_{i}/{nome_pesi}' for i in range(1, 6)]
+    checkpoints = [f'work_dirs_Lesion_copy/medseg_custom/fold_{i}/{nome_pesi}' for i in range(1, 6)]
     
     os.makedirs(cartella_output, exist_ok=True)
     

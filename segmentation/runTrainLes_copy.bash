@@ -4,7 +4,7 @@
 CONFIG="configs/vit_adapter/medseg_custom_Lesion_copy.py"
 
 # Ciclo for da 1 a 5 per i nostri Fold
-for FOLD in {1..5}
+for FOLD in {5..5}
 do
     echo "=========================================================="
     echo "INIZIO TRAINING FOLD $FOLD"
