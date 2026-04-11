@@ -1,0 +1,76 @@
+============================================================
+REPORT METRICHE AVANZATO - 2 CLASSI
+============================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[80750607   119858]
+ [  304963    81020]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):      80750607
+  Vero Negativo (TN):         81020
+  Falso Positivo (FP):       304963
+  Falso Negativo (FN):       119858
+  Support (TP+FN):         80870465
+
+Metriche:
+  Pixel Accuracy:      0.9948
+  IoU (Jaccard):       0.9948
+  Dice (F1-Score):     0.9974
+  Precision:           0.9962
+  Recall/Sensitivity:  0.9985
+  Specificity:         0.2099
+  Balanced Accuracy:   0.6042
+  MCC:                 0.2886
+
+--- Dettaglio Classe: LESION ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):         81020
+  Vero Negativo (TN):      80750607
+  Falso Positivo (FP):       119858
+  Falso Negativo (FN):       304963
+  Support (TP+FN):           385983
+
+Metriche:
+  Pixel Accuracy:      0.9948
+  IoU (Jaccard):       0.1602
+  Dice (F1-Score):     0.2761
+  Precision:           0.4033
+  Recall/Sensitivity:  0.2099
+  Specificity:         0.9985
+  Balanced Accuracy:   0.6042
+  MCC:                 0.2886
+
+------------------------------------------------------------
+[MEDIE MACRO (Macro-Average)] - Ogni classe conta allo stesso modo
+  Mean Pixel Accuracy: 0.9948
+  Mean IoU (mIoU):     0.5775
+  Mean Dice (mF1):     0.6367
+  Mean Precision:      0.6998
+  Mean Recall/Sens.:   0.6042
+  Mean Specificity:    0.6042
+  Mean Balanced Acc:   0.6042
+  Mean MCC:            0.2886
+
+[MEDIE MICRO (Micro-Average)] - Aggregazione globale dei pixel
+  Micro Pixel Accuracy:0.9948
+  Micro IoU:           0.9896
+  Micro Dice (F1):     0.9948
+  Micro Precision:     0.9948
+  Micro Recall:        0.9948
+  Micro Specificity:   0.9948
+  Micro Balanced Acc:  0.9948
+  Micro MCC:           0.9895
+
+[MEDIE WEIGHTED (Weighted-Average)] - Ponderate in base al Support
+  Weight. Pixel Acc:   0.9948
+  Weight. IoU:         0.9908
+  Weight. Dice (F1):   0.9940
+  Weight. Precision:   0.9934
+  Weight. Recall:      0.9948
+  Weight. Specificity: 0.2137
+  Weight. Balanced Acc:0.6042
+  Weight. MCC:         0.2886
+============================================================
+

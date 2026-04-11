@@ -1,0 +1,760 @@
+============================================================
+REPORT METRICHE AVANZATO - 2 CLASSI
+============================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[48418156   217547]
+ [   75540    90237]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):      48418156
+  Vero Negativo (TN):         90237
+  Falso Positivo (FP):        75540
+  Falso Negativo (FN):       217547
+  Support (TP+FN):         48635703
+
+Metriche:
+  Pixel Accuracy:      0.9940
+  IoU (Jaccard):       0.9940
+  Dice (F1-Score):     0.9970
+  Precision:           0.9984
+  Recall/Sensitivity:  0.9955
+  Specificity:         0.5443
+  Balanced Accuracy:   0.7699
+  MCC:                 0.3968
+
+--- Dettaglio Classe: LESION ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):         90237
+  Vero Negativo (TN):      48418156
+  Falso Positivo (FP):       217547
+  Falso Negativo (FN):        75540
+  Support (TP+FN):           165777
+
+Metriche:
+  Pixel Accuracy:      0.9940
+  IoU (Jaccard):       0.2354
+  Dice (F1-Score):     0.3811
+  Precision:           0.2932
+  Recall/Sensitivity:  0.5443
+  Specificity:         0.9955
+  Balanced Accuracy:   0.7699
+  MCC:                 0.3968
+
+------------------------------------------------------------
+[MEDIE MACRO (Macro-Average)] - Ogni classe conta allo stesso modo
+  Mean Pixel Accuracy: 0.9940
+  Mean IoU (mIoU):     0.6147
+  Mean Dice (mF1):     0.6890
+  Mean Precision:      0.6458
+  Mean Recall/Sens.:   0.7699
+  Mean Specificity:    0.7699
+  Mean Balanced Acc:   0.7699
+  Mean MCC:            0.3968
+
+[MEDIE MICRO (Micro-Average)] - Aggregazione globale dei pixel
+  Micro Pixel Accuracy:0.9940
+  Micro IoU:           0.9881
+  Micro Dice (F1):     0.9940
+  Micro Precision:     0.9940
+  Micro Recall:        0.9940
+  Micro Specificity:   0.9940
+  Micro Balanced Acc:  0.9940
+  Micro MCC:           0.9880
+
+[MEDIE WEIGHTED (Weighted-Average)] - Ponderate in base al Support
+  Weight. Pixel Acc:   0.9940
+  Weight. IoU:         0.9914
+  Weight. Dice (F1):   0.9949
+  Weight. Precision:   0.9960
+  Weight. Recall:      0.9940
+  Weight. Specificity: 0.5459
+  Weight. Balanced Acc:0.7699
+  Weight. MCC:         0.3968
+============================================================
+
+============================================================
+REPORT METRICHE AVANZATO - 2 CLASSI
+============================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[48427557   208146]
+ [   81365    84412]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):      48427557
+  Vero Negativo (TN):         84412
+  Falso Positivo (FP):        81365
+  Falso Negativo (FN):       208146
+  Support (TP+FN):         48635703
+
+Metriche:
+  Pixel Accuracy:      0.9941
+  IoU (Jaccard):       0.9941
+  Dice (F1-Score):     0.9970
+  Precision:           0.9983
+  Recall/Sensitivity:  0.9957
+  Specificity:         0.5092
+  Balanced Accuracy:   0.7525
+  MCC:                 0.3806
+
+--- Dettaglio Classe: LESION ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):         84412
+  Vero Negativo (TN):      48427557
+  Falso Positivo (FP):       208146
+  Falso Negativo (FN):        81365
+  Support (TP+FN):           165777
+
+Metriche:
+  Pixel Accuracy:      0.9941
+  IoU (Jaccard):       0.2257
+  Dice (F1-Score):     0.3683
+  Precision:           0.2885
+  Recall/Sensitivity:  0.5092
+  Specificity:         0.9957
+  Balanced Accuracy:   0.7525
+  MCC:                 0.3806
+
+------------------------------------------------------------
+[MEDIE MACRO (Macro-Average)] - Ogni classe conta allo stesso modo
+  Mean Pixel Accuracy: 0.9941
+  Mean IoU (mIoU):     0.6099
+  Mean Dice (mF1):     0.6827
+  Mean Precision:      0.6434
+  Mean Recall/Sens.:   0.7525
+  Mean Specificity:    0.7525
+  Mean Balanced Acc:   0.7525
+  Mean MCC:            0.3806
+
+[MEDIE MICRO (Micro-Average)] - Aggregazione globale dei pixel
+  Micro Pixel Accuracy:0.9941
+  Micro IoU:           0.9882
+  Micro Dice (F1):     0.9941
+  Micro Precision:     0.9941
+  Micro Recall:        0.9941
+  Micro Specificity:   0.9941
+  Micro Balanced Acc:  0.9941
+  Micro MCC:           0.9881
+
+[MEDIE WEIGHTED (Weighted-Average)] - Ponderate in base al Support
+  Weight. Pixel Acc:   0.9941
+  Weight. IoU:         0.9914
+  Weight. Dice (F1):   0.9949
+  Weight. Precision:   0.9959
+  Weight. Recall:      0.9941
+  Weight. Specificity: 0.5108
+  Weight. Balanced Acc:0.7525
+  Weight. MCC:         0.3806
+============================================================
+
+============================================================
+REPORT METRICHE AVANZATO - 2 CLASSI
+============================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[48579799    55904]
+ [  113487    52290]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):      48579799
+  Vero Negativo (TN):         52290
+  Falso Positivo (FP):       113487
+  Falso Negativo (FN):        55904
+  Support (TP+FN):         48635703
+
+Metriche:
+  Pixel Accuracy:      0.9965
+  IoU (Jaccard):       0.9965
+  Dice (F1-Score):     0.9983
+  Precision:           0.9977
+  Recall/Sensitivity:  0.9989
+  Specificity:         0.3154
+  Balanced Accuracy:   0.6571
+  MCC:                 0.3888
+
+--- Dettaglio Classe: LESION ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):         52290
+  Vero Negativo (TN):      48579799
+  Falso Positivo (FP):        55904
+  Falso Negativo (FN):       113487
+  Support (TP+FN):           165777
+
+Metriche:
+  Pixel Accuracy:      0.9965
+  IoU (Jaccard):       0.2359
+  Dice (F1-Score):     0.3817
+  Precision:           0.4833
+  Recall/Sensitivity:  0.3154
+  Specificity:         0.9989
+  Balanced Accuracy:   0.6571
+  MCC:                 0.3888
+
+------------------------------------------------------------
+[MEDIE MACRO (Macro-Average)] - Ogni classe conta allo stesso modo
+  Mean Pixel Accuracy: 0.9965
+  Mean IoU (mIoU):     0.6162
+  Mean Dice (mF1):     0.6900
+  Mean Precision:      0.7405
+  Mean Recall/Sens.:   0.6571
+  Mean Specificity:    0.6571
+  Mean Balanced Acc:   0.6571
+  Mean MCC:            0.3888
+
+[MEDIE MICRO (Micro-Average)] - Aggregazione globale dei pixel
+  Micro Pixel Accuracy:0.9965
+  Micro IoU:           0.9931
+  Micro Dice (F1):     0.9965
+  Micro Precision:     0.9965
+  Micro Recall:        0.9965
+  Micro Specificity:   0.9965
+  Micro Balanced Acc:  0.9965
+  Micro MCC:           0.9931
+
+[MEDIE WEIGHTED (Weighted-Average)] - Ponderate in base al Support
+  Weight. Pixel Acc:   0.9965
+  Weight. IoU:         0.9939
+  Weight. Dice (F1):   0.9962
+  Weight. Precision:   0.9959
+  Weight. Recall:      0.9965
+  Weight. Specificity: 0.3177
+  Weight. Balanced Acc:0.6571
+  Weight. MCC:         0.3888
+============================================================
+
+============================================================
+REPORT METRICHE AVANZATO - 2 CLASSI
+============================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[47832546   803157]
+ [   91546    74231]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):      47832546
+  Vero Negativo (TN):         74231
+  Falso Positivo (FP):        91546
+  Falso Negativo (FN):       803157
+  Support (TP+FN):         48635703
+
+Metriche:
+  Pixel Accuracy:      0.9817
+  IoU (Jaccard):       0.9816
+  Dice (F1-Score):     0.9907
+  Precision:           0.9981
+  Recall/Sensitivity:  0.9835
+  Specificity:         0.4478
+  Balanced Accuracy:   0.7156
+  MCC:                 0.1888
+
+--- Dettaglio Classe: LESION ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):         74231
+  Vero Negativo (TN):      47832546
+  Falso Positivo (FP):       803157
+  Falso Negativo (FN):        91546
+  Support (TP+FN):           165777
+
+Metriche:
+  Pixel Accuracy:      0.9817
+  IoU (Jaccard):       0.0766
+  Dice (F1-Score):     0.1423
+  Precision:           0.0846
+  Recall/Sensitivity:  0.4478
+  Specificity:         0.9835
+  Balanced Accuracy:   0.7156
+  MCC:                 0.1888
+
+------------------------------------------------------------
+[MEDIE MACRO (Macro-Average)] - Ogni classe conta allo stesso modo
+  Mean Pixel Accuracy: 0.9817
+  Mean IoU (mIoU):     0.5291
+  Mean Dice (mF1):     0.5665
+  Mean Precision:      0.5413
+  Mean Recall/Sens.:   0.7156
+  Mean Specificity:    0.7156
+  Mean Balanced Acc:   0.7156
+  Mean MCC:            0.1888
+
+[MEDIE MICRO (Micro-Average)] - Aggregazione globale dei pixel
+  Micro Pixel Accuracy:0.9817
+  Micro IoU:           0.9640
+  Micro Dice (F1):     0.9817
+  Micro Precision:     0.9817
+  Micro Recall:        0.9817
+  Micro Specificity:   0.9817
+  Micro Balanced Acc:  0.9817
+  Micro MCC:           0.9633
+
+[MEDIE WEIGHTED (Weighted-Average)] - Ponderate in base al Support
+  Weight. Pixel Acc:   0.9817
+  Weight. IoU:         0.9786
+  Weight. Dice (F1):   0.9879
+  Weight. Precision:   0.9950
+  Weight. Recall:      0.9817
+  Weight. Specificity: 0.4496
+  Weight. Balanced Acc:0.7156
+  Weight. MCC:         0.1888
+============================================================
+
+============================================================
+REPORT METRICHE AVANZATO - 2 CLASSI
+============================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[48237622   398081]
+ [  117601    48176]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):      48237622
+  Vero Negativo (TN):         48176
+  Falso Positivo (FP):       117601
+  Falso Negativo (FN):       398081
+  Support (TP+FN):         48635703
+
+Metriche:
+  Pixel Accuracy:      0.9894
+  IoU (Jaccard):       0.9894
+  Dice (F1-Score):     0.9947
+  Precision:           0.9976
+  Recall/Sensitivity:  0.9918
+  Specificity:         0.2906
+  Balanced Accuracy:   0.6412
+  MCC:                 0.1726
+
+--- Dettaglio Classe: LESION ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):         48176
+  Vero Negativo (TN):      48237622
+  Falso Positivo (FP):       398081
+  Falso Negativo (FN):       117601
+  Support (TP+FN):           165777
+
+Metriche:
+  Pixel Accuracy:      0.9894
+  IoU (Jaccard):       0.0854
+  Dice (F1-Score):     0.1574
+  Precision:           0.1080
+  Recall/Sensitivity:  0.2906
+  Specificity:         0.9918
+  Balanced Accuracy:   0.6412
+  MCC:                 0.1726
+
+------------------------------------------------------------
+[MEDIE MACRO (Macro-Average)] - Ogni classe conta allo stesso modo
+  Mean Pixel Accuracy: 0.9894
+  Mean IoU (mIoU):     0.5374
+  Mean Dice (mF1):     0.5761
+  Mean Precision:      0.5528
+  Mean Recall/Sens.:   0.6412
+  Mean Specificity:    0.6412
+  Mean Balanced Acc:   0.6412
+  Mean MCC:            0.1726
+
+[MEDIE MICRO (Micro-Average)] - Aggregazione globale dei pixel
+  Micro Pixel Accuracy:0.9894
+  Micro IoU:           0.9791
+  Micro Dice (F1):     0.9894
+  Micro Precision:     0.9894
+  Micro Recall:        0.9894
+  Micro Specificity:   0.9894
+  Micro Balanced Acc:  0.9894
+  Micro MCC:           0.9789
+
+[MEDIE WEIGHTED (Weighted-Average)] - Ponderate in base al Support
+  Weight. Pixel Acc:   0.9894
+  Weight. IoU:         0.9864
+  Weight. Dice (F1):   0.9918
+  Weight. Precision:   0.9945
+  Weight. Recall:      0.9894
+  Weight. Specificity: 0.2930
+  Weight. Balanced Acc:0.6412
+  Weight. MCC:         0.1726
+============================================================
+
+============================================================
+REPORT METRICHE AVANZATO - 2 CLASSI
+============================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[48320901   314802]
+ [  102806    62971]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):      48320901
+  Vero Negativo (TN):         62971
+  Falso Positivo (FP):       102806
+  Falso Negativo (FN):       314802
+  Support (TP+FN):         48635703
+
+Metriche:
+  Pixel Accuracy:      0.9914
+  IoU (Jaccard):       0.9914
+  Dice (F1-Score):     0.9957
+  Precision:           0.9979
+  Recall/Sensitivity:  0.9935
+  Specificity:         0.3799
+  Balanced Accuracy:   0.6867
+  MCC:                 0.2479
+
+--- Dettaglio Classe: LESION ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):         62971
+  Vero Negativo (TN):      48320901
+  Falso Positivo (FP):       314802
+  Falso Negativo (FN):       102806
+  Support (TP+FN):           165777
+
+Metriche:
+  Pixel Accuracy:      0.9914
+  IoU (Jaccard):       0.1310
+  Dice (F1-Score):     0.2317
+  Precision:           0.1667
+  Recall/Sensitivity:  0.3799
+  Specificity:         0.9935
+  Balanced Accuracy:   0.6867
+  MCC:                 0.2479
+
+------------------------------------------------------------
+[MEDIE MACRO (Macro-Average)] - Ogni classe conta allo stesso modo
+  Mean Pixel Accuracy: 0.9914
+  Mean IoU (mIoU):     0.5612
+  Mean Dice (mF1):     0.6137
+  Mean Precision:      0.5823
+  Mean Recall/Sens.:   0.6867
+  Mean Specificity:    0.6867
+  Mean Balanced Acc:   0.6867
+  Mean MCC:            0.2479
+
+[MEDIE MICRO (Micro-Average)] - Aggregazione globale dei pixel
+  Micro Pixel Accuracy:0.9914
+  Micro IoU:           0.9830
+  Micro Dice (F1):     0.9914
+  Micro Precision:     0.9914
+  Micro Recall:        0.9914
+  Micro Specificity:   0.9914
+  Micro Balanced Acc:  0.9914
+  Micro MCC:           0.9829
+
+[MEDIE WEIGHTED (Weighted-Average)] - Ponderate in base al Support
+  Weight. Pixel Acc:   0.9914
+  Weight. IoU:         0.9885
+  Weight. Dice (F1):   0.9931
+  Weight. Precision:   0.9951
+  Weight. Recall:      0.9914
+  Weight. Specificity: 0.3819
+  Weight. Balanced Acc:0.6867
+  Weight. MCC:         0.2479
+============================================================
+
+============================================================
+REPORT METRICHE AVANZATO - 2 CLASSI
+============================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[48528080   107623]
+ [  115640    50137]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):      48528080
+  Vero Negativo (TN):         50137
+  Falso Positivo (FP):       115640
+  Falso Negativo (FN):       107623
+  Support (TP+FN):         48635703
+
+Metriche:
+  Pixel Accuracy:      0.9954
+  IoU (Jaccard):       0.9954
+  Dice (F1-Score):     0.9977
+  Precision:           0.9976
+  Recall/Sensitivity:  0.9978
+  Specificity:         0.3024
+  Balanced Accuracy:   0.6501
+  MCC:                 0.3077
+
+--- Dettaglio Classe: LESION ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):         50137
+  Vero Negativo (TN):      48528080
+  Falso Positivo (FP):       107623
+  Falso Negativo (FN):       115640
+  Support (TP+FN):           165777
+
+Metriche:
+  Pixel Accuracy:      0.9954
+  IoU (Jaccard):       0.1834
+  Dice (F1-Score):     0.3099
+  Precision:           0.3178
+  Recall/Sensitivity:  0.3024
+  Specificity:         0.9978
+  Balanced Accuracy:   0.6501
+  MCC:                 0.3077
+
+------------------------------------------------------------
+[MEDIE MACRO (Macro-Average)] - Ogni classe conta allo stesso modo
+  Mean Pixel Accuracy: 0.9954
+  Mean IoU (mIoU):     0.5894
+  Mean Dice (mF1):     0.6538
+  Mean Precision:      0.6577
+  Mean Recall/Sens.:   0.6501
+  Mean Specificity:    0.6501
+  Mean Balanced Acc:   0.6501
+  Mean MCC:            0.3077
+
+[MEDIE MICRO (Micro-Average)] - Aggregazione globale dei pixel
+  Micro Pixel Accuracy:0.9954
+  Micro IoU:           0.9909
+  Micro Dice (F1):     0.9954
+  Micro Precision:     0.9954
+  Micro Recall:        0.9954
+  Micro Specificity:   0.9954
+  Micro Balanced Acc:  0.9954
+  Micro MCC:           0.9909
+
+[MEDIE WEIGHTED (Weighted-Average)] - Ponderate in base al Support
+  Weight. Pixel Acc:   0.9954
+  Weight. IoU:         0.9927
+  Weight. Dice (F1):   0.9954
+  Weight. Precision:   0.9953
+  Weight. Recall:      0.9954
+  Weight. Specificity: 0.3048
+  Weight. Balanced Acc:0.6501
+  Weight. MCC:         0.3077
+============================================================
+
+============================================================
+REPORT METRICHE AVANZATO - 2 CLASSI
+============================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[48042013   593690]
+ [   99869    65908]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):      48042013
+  Vero Negativo (TN):         65908
+  Falso Positivo (FP):        99869
+  Falso Negativo (FN):       593690
+  Support (TP+FN):         48635703
+
+Metriche:
+  Pixel Accuracy:      0.9858
+  IoU (Jaccard):       0.9858
+  Dice (F1-Score):     0.9928
+  Precision:           0.9979
+  Recall/Sensitivity:  0.9878
+  Specificity:         0.3976
+  Balanced Accuracy:   0.6927
+  MCC:                 0.1942
+
+--- Dettaglio Classe: LESION ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):         65908
+  Vero Negativo (TN):      48042013
+  Falso Positivo (FP):       593690
+  Falso Negativo (FN):        99869
+  Support (TP+FN):           165777
+
+Metriche:
+  Pixel Accuracy:      0.9858
+  IoU (Jaccard):       0.0868
+  Dice (F1-Score):     0.1597
+  Precision:           0.0999
+  Recall/Sensitivity:  0.3976
+  Specificity:         0.9878
+  Balanced Accuracy:   0.6927
+  MCC:                 0.1942
+
+------------------------------------------------------------
+[MEDIE MACRO (Macro-Average)] - Ogni classe conta allo stesso modo
+  Mean Pixel Accuracy: 0.9858
+  Mean IoU (mIoU):     0.5363
+  Mean Dice (mF1):     0.5763
+  Mean Precision:      0.5489
+  Mean Recall/Sens.:   0.6927
+  Mean Specificity:    0.6927
+  Mean Balanced Acc:   0.6927
+  Mean MCC:            0.1942
+
+[MEDIE MICRO (Micro-Average)] - Aggregazione globale dei pixel
+  Micro Pixel Accuracy:0.9858
+  Micro IoU:           0.9720
+  Micro Dice (F1):     0.9858
+  Micro Precision:     0.9858
+  Micro Recall:        0.9858
+  Micro Specificity:   0.9858
+  Micro Balanced Acc:  0.9858
+  Micro MCC:           0.9716
+
+[MEDIE WEIGHTED (Weighted-Average)] - Ponderate in base al Support
+  Weight. Pixel Acc:   0.9858
+  Weight. IoU:         0.9827
+  Weight. Dice (F1):   0.9900
+  Weight. Precision:   0.9949
+  Weight. Recall:      0.9858
+  Weight. Specificity: 0.3996
+  Weight. Balanced Acc:0.6927
+  Weight. MCC:         0.1942
+============================================================
+
+============================================================
+REPORT METRICHE AVANZATO - 2 CLASSI
+============================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[48410731   224972]
+ [  100278    65499]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):      48410731
+  Vero Negativo (TN):         65499
+  Falso Positivo (FP):       100278
+  Falso Negativo (FN):       224972
+  Support (TP+FN):         48635703
+
+Metriche:
+  Pixel Accuracy:      0.9933
+  IoU (Jaccard):       0.9933
+  Dice (F1-Score):     0.9967
+  Precision:           0.9979
+  Recall/Sensitivity:  0.9954
+  Specificity:         0.3951
+  Balanced Accuracy:   0.6952
+  MCC:                 0.2954
+
+--- Dettaglio Classe: LESION ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):         65499
+  Vero Negativo (TN):      48410731
+  Falso Positivo (FP):       224972
+  Falso Negativo (FN):       100278
+  Support (TP+FN):           165777
+
+Metriche:
+  Pixel Accuracy:      0.9933
+  IoU (Jaccard):       0.1676
+  Dice (F1-Score):     0.2871
+  Precision:           0.2255
+  Recall/Sensitivity:  0.3951
+  Specificity:         0.9954
+  Balanced Accuracy:   0.6952
+  MCC:                 0.2954
+
+------------------------------------------------------------
+[MEDIE MACRO (Macro-Average)] - Ogni classe conta allo stesso modo
+  Mean Pixel Accuracy: 0.9933
+  Mean IoU (mIoU):     0.5805
+  Mean Dice (mF1):     0.6419
+  Mean Precision:      0.6117
+  Mean Recall/Sens.:   0.6952
+  Mean Specificity:    0.6952
+  Mean Balanced Acc:   0.6952
+  Mean MCC:            0.2954
+
+[MEDIE MICRO (Micro-Average)] - Aggregazione globale dei pixel
+  Micro Pixel Accuracy:0.9933
+  Micro IoU:           0.9868
+  Micro Dice (F1):     0.9933
+  Micro Precision:     0.9933
+  Micro Recall:        0.9933
+  Micro Specificity:   0.9933
+  Micro Balanced Acc:  0.9933
+  Micro MCC:           0.9867
+
+[MEDIE WEIGHTED (Weighted-Average)] - Ponderate in base al Support
+  Weight. Pixel Acc:   0.9933
+  Weight. IoU:         0.9905
+  Weight. Dice (F1):   0.9942
+  Weight. Precision:   0.9953
+  Weight. Recall:      0.9933
+  Weight. Specificity: 0.3971
+  Weight. Balanced Acc:0.6952
+  Weight. MCC:         0.2954
+============================================================
+
+============================================================
+REPORT METRICHE AVANZATO - 2 CLASSI
+============================================================
+
+[MATRICE DI CONFUSIONE GLOBALE]
+[[48337374   298329]
+ [  106011    59766]]
+
+--- Dettaglio Classe: BACKGROUND ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):      48337374
+  Vero Negativo (TN):         59766
+  Falso Positivo (FP):       106011
+  Falso Negativo (FN):       298329
+  Support (TP+FN):         48635703
+
+Metriche:
+  Pixel Accuracy:      0.9917
+  IoU (Jaccard):       0.9917
+  Dice (F1-Score):     0.9958
+  Precision:           0.9978
+  Recall/Sensitivity:  0.9939
+  Specificity:         0.3605
+  Balanced Accuracy:   0.6772
+  MCC:                 0.2416
+
+--- Dettaglio Classe: LESION ---
+Valori Assoluti (Pixel):
+  Vero Positivo (TP):         59766
+  Vero Negativo (TN):      48337374
+  Falso Positivo (FP):       298329
+  Falso Negativo (FN):       106011
+  Support (TP+FN):           165777
+
+Metriche:
+  Pixel Accuracy:      0.9917
+  IoU (Jaccard):       0.1288
+  Dice (F1-Score):     0.2282
+  Precision:           0.1669
+  Recall/Sensitivity:  0.3605
+  Specificity:         0.9939
+  Balanced Accuracy:   0.6772
+  MCC:                 0.2416
+
+------------------------------------------------------------
+[MEDIE MACRO (Macro-Average)] - Ogni classe conta allo stesso modo
+  Mean Pixel Accuracy: 0.9917
+  Mean IoU (mIoU):     0.5602
+  Mean Dice (mF1):     0.6120
+  Mean Precision:      0.5824
+  Mean Recall/Sens.:   0.6772
+  Mean Specificity:    0.6772
+  Mean Balanced Acc:   0.6772
+  Mean MCC:            0.2416
+
+[MEDIE MICRO (Micro-Average)] - Aggregazione globale dei pixel
+  Micro Pixel Accuracy:0.9917
+  Micro IoU:           0.9836
+  Micro Dice (F1):     0.9917
+  Micro Precision:     0.9917
+  Micro Recall:        0.9917
+  Micro Specificity:   0.9917
+  Micro Balanced Acc:  0.9917
+  Micro MCC:           0.9834
+
+[MEDIE WEIGHTED (Weighted-Average)] - Ponderate in base al Support
+  Weight. Pixel Acc:   0.9917
+  Weight. IoU:         0.9888
+  Weight. Dice (F1):   0.9932
+  Weight. Precision:   0.9950
+  Weight. Recall:      0.9917
+  Weight. Specificity: 0.3627
+  Weight. Balanced Acc:0.6772
+  Weight. MCC:         0.2416
+============================================================
+

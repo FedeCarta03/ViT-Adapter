@@ -4,6 +4,8 @@ _base_ = [
     './upernet_deit_adapter_base_512_160k_ade20k.py'
 ]
 
+custom_imports = dict(imports=['custom_dice'], allow_failed_imports=False)
+
 # --- CONFIGURAZIONE DATASET ---
 dataset_type = 'SklearnMetricsDataset'
 data_root = 'data_medical/27919209/MSLesSeg3C'   # Assicurati che la cartella sia qui
@@ -102,7 +104,7 @@ model = dict(
         norm_cfg=norm_cfg,  # Usa Group Norm
         loss_decode=[
             dict(type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0),
-            dict(type='DiceLoss', loss_weight=3.0) # Il peso 3 forza il modello a cercare la lesione
+            dict(type='CustomDiceLoss', loss_weight=3.0) # Il peso 3 forza il modello a cercare la lesione
         ]
     
     ),
@@ -111,7 +113,7 @@ model = dict(
         norm_cfg=norm_cfg,   # Usa Group Norm
         loss_decode=[
             dict(type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0),
-            dict(type='DiceLoss', loss_weight=3.0) # Il peso 3 forza il modello a cercare la lesione
+            dict(type='CustomDiceLoss', loss_weight=3.0) # Il peso 3 forza il modello a cercare la lesione
         ]
     )
 )
