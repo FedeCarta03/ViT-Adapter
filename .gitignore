@@ -161,3 +161,9 @@ detection/risultati_ensemble_detection/*
 detection/work_dirs/*
 
 !segmentation/mmseg_custom/datasets/custom_metrics_dataset.py
+
+segmentation/risultati_visivi_ensable_les_copy_100/
+segmentation/risultati_visivi_ensable_les_copy_100_puliti/
+segmentation/risultati_visivi_ensable_les_copy_100_puliti2/
+segmentation/work_dirs_Lesion_Norm/
+segmentation/work_dirs_Lesion_copy/
