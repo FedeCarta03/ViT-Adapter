@@ -121,7 +121,7 @@ def calcola_e_disegna_pr_multifold():
 
     plt.savefig('pr_final_comparison.png', dpi=300, bbox_inches='tight')
     plt.show()
-    print(f"✅ Grafico salvato come: 'pr_final_comparison.png'")
+    print(f"Grafico salvato come: 'pr_final_comparison.png'")
 
 if __name__ == '__main__':
     calcola_e_disegna_pr_multifold()

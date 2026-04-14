@@ -15,7 +15,7 @@ do
     echo "=========================================================="
     
     # Cartella dove verranno salvati i pesi e i log di questo fold
-    WORK_DIR="work_dirs/kfoldTrain/fold_${FOLD}"
+    WORK_DIR="work_dirs_2/kfoldTrain/fold_${FOLD}"
     
     # Eseguiamo il training utilizzando torch.distributed.launch per evitare il crash
     OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 CV_NUM_THREADS=0 \

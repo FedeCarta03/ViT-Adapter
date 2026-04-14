@@ -1,46 +1,36 @@
 # --- EREDITARIETÀ ---
-# Usa il modello base DeiT (i pesi che hai scaricato)
 _base_ = [
     './upernet_deit_adapter_base_512_160k_ade20k.py'
 ]
 
-custom_imports = dict(imports=['custom_dice'], allow_failed_imports=False)
+# 1. IMPORTIAMO IL NUOVO SCRIPT ASSIEME ALLA TUA DICE LOSS
+custom_imports = dict(imports=['custom_dice', 'zNormlization'], allow_failed_imports=False)
 
 # --- CONFIGURAZIONE DATASET ---
 dataset_type = 'SklearnMetricsDataset'
-data_root = 'data_medical/27919209/MSLesSeg3C'   # Assicurati che la cartella sia qui
+data_root = 'data_medical/27919209/MSLesSeg3C'
 
-# Normalizzazione standard (la stessa di ImageNet)
-img_norm_cfg = dict(
-    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
+# 2. RIMUOVIAMO LA NORMALIZZAZIONE IMAGENET
+# img_norm_cfg = dict(mean=[123.675...]) -> CANCELLATO!
 
+# 3. AGGIORNIAMO LA TRAIN PIPELINE
 train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='LoadAnnotations'),
-    
-    # 1. MODIFICATO: Resize fisso. 
-    # Ho rimosso "ratio_range". Se l'immagine venisse ingrandita senza poi 
-    # essere ritagliata, farebbe esplodere i tuoi 4GB di VRAM.
-    # Così la rete vede SEMPRE l'intero cervello a 256x256.
     dict(type='Resize', img_scale=(256, 256), keep_ratio=False),
-
-    # 2. RIMOSSO: dict(type='RandomCrop', ...) è stato completamente cancellato.
-    # Niente più tagli ciechi, la lesione non può più "scappare" dall'immagine.
-    
-    # Ribaltamento casuale (Specchio)
     dict(type='RandomFlip', prob=0.5, direction='horizontal'),
     dict(type='RandomFlip', prob=0.5, direction='vertical'),
-    
-    # Rotazione casuale (Max 15 gradi)
     dict(type='RandomRotate', prob=0.5, degree=15, pad_val=0, seg_pad_val=255),
     
-    dict(type='Normalize', **img_norm_cfg),
+    # LA NUOVA NORMALIZZAZIONE MEDICA VA QUI!
+    dict(type='MRILocalZNormalize', clip_values=True),
+    
     dict(type='Pad', size=(256, 256), pad_val=0, seg_pad_val=255),
     dict(type='DefaultFormatBundle'),
     dict(type='Collect', keys=['img', 'gt_semantic_seg']),
 ]
 
-# Pipeline di Test/Validazione
+# 4. AGGIORNIAMO LA TEST PIPELINE
 test_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(
@@ -50,12 +40,16 @@ test_pipeline = [
         transforms=[
             dict(type='Resize', keep_ratio=True),
             dict(type='RandomFlip'),
-            dict(type='Normalize', **img_norm_cfg),
+            
+            # LA NUOVA NORMALIZZAZIONE MEDICA VA ANCHE QUI!
+            dict(type='MRILocalZNormalize', clip_values=True),
+            
             dict(type='Pad', size_divisor=32, pad_val=0, seg_pad_val=255),
             dict(type='ImageToTensor', keys=['img']),
             dict(type='Collect', keys=['img']),
         ])
 ]
+
 
 data = dict(
     # --- IMPOSTAZIONI CRITICHE PER LAPTOP ---

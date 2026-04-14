@@ -117,7 +117,7 @@ def generate_full_metrics_report(filename="report_metriche.txt"):
     with open(filename, "w", encoding="utf-8") as f:
         f.write(report_text)
         
-    print(f"\n✅ Operazione completata! Il report è stato salvato nel file: '{filename}'")
+    print(f"\nOperazione completata! Il report è stato salvato nel file: '{filename}'")
 
 # Esegui lo script
 generate_full_metrics_report("report_metriche_5.txt")

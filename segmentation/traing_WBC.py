@@ -36,7 +36,7 @@ def esegui_ensemble_3_classi():
     model = None
     for fold_idx, ckpt_path in enumerate(checkpoints, 1):
         if not os.path.exists(ckpt_path):
-            print(f"⚠️ Salto Fold {fold_idx}: {ckpt_path} non trovato.")
+            print(f"Salto Fold {fold_idx}: {ckpt_path} non trovato.")
             continue
             
         print(f"\n--- [FOLD {fold_idx}/5] Caricamento Modello ---")
@@ -88,7 +88,7 @@ def esegui_ensemble_3_classi():
             opacity=1 # Ridotto un po' per vedere meglio nucleo/citoplasma
         )
 
-    print(f"\n✅ ENSEMBLE COMPLETATO! Risultati in: '{cartella_output}'")
+    print(f"\nENSEMBLE COMPLETATO! Risultati in: '{cartella_output}'")
 
 if __name__ == '__main__':
     esegui_ensemble_3_classi()

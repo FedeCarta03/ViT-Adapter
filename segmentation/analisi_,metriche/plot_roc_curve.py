@@ -119,7 +119,7 @@ def calcola_e_disegna_roc_multifold():
 
     plt.savefig('roc_final_comparison.png', dpi=300, bbox_inches='tight')
     plt.show()
-    print(f"✅ Grafico salvato come: 'roc_final_comparison.png'")
+    print(f"Grafico salvato come: 'roc_final_comparison.png'")
 
 if __name__ == '__main__':
     calcola_e_disegna_roc_multifold()

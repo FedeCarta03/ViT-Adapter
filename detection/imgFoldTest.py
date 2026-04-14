@@ -46,7 +46,7 @@ def esegui_ensemble_detection():
         ckpt_path = f'{fold_dir}/latest.pth' 
         
         if not os.path.exists(ckpt_path):
-            print(f"⚠️ Saltato Fold {i}: file non trovato {ckpt_path}")
+            print(f"Saltato Fold {i}: file non trovato {ckpt_path}")
             modelli.append(None)
             continue
             
@@ -136,7 +136,7 @@ def esegui_ensemble_detection():
         del ensemble_result
         torch.cuda.empty_cache() # Pulisce frammenti di VRAM
 
-    print(f"\n✅ ENSEMBLE COMPLETATO! Risultati in: {cartella_output}")
+    print(f"\nENSEMBLE COMPLETATO! Risultati in: {cartella_output}")
 
 if __name__ == '__main__':
     esegui_ensemble_detection()

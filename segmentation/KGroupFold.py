@@ -60,7 +60,7 @@ def genera_split_medici(cartella_immagini, cartella_output, num_folds=5):
             
         # Log di conferma
         pazienti_val = df.iloc[val_idx]['patient_id'].unique()
-        print(f"✅ Creata cartella: {cartella_fold}")
+        print(f"Creata cartella: {cartella_fold}")
         print(f"   -> train.txt : {len(train_files)} fette")
         print(f"   -> val.txt   : {len(val_files)} fette (Pazienti isolati: {list(pazienti_val)})\n")
 
@@ -69,7 +69,7 @@ def genera_split_medici(cartella_immagini, cartella_output, num_folds=5):
 # ====================
 if __name__ == "__main__":
     # Percorsi base
-    cartella_con_i_png = "data_medical/27919209/MSLesSeg3C/images"
-    cartella_dove_salvare_i_txt = "data_medical/27919209/MSLesSeg3C/fold"
+    cartella_con_i_png = "data_medical/27919209/MSLesSeg3C/images1000"
+    cartella_dove_salvare_i_txt = "data_medical/27919209/MSLesSeg3C/fold1000"
     
     genera_split_medici(cartella_con_i_png, cartella_dove_salvare_i_txt, num_folds=5)

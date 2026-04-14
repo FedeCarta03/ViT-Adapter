@@ -1,17 +1,17 @@
 #!/bin/bash
 
 # Definisci il file di configurazione base
-CONFIG="configs/vit_adapter/medseg_custom_Lesion_copy.py"
+CONFIG="configs/vit_adapter/medseg_custom_Lesion_zNorm.py"
 
 # Ciclo for da 1 a 5 per i nostri Fold
-for FOLD in {5..5}
+for FOLD in {1..5}
 do
     echo "=========================================================="
     echo "INIZIO TRAINING FOLD $FOLD"
     echo "=========================================================="
     
     # Cartella dove verranno salvati i pesi e i log di questo fold
-    WORK_DIR="work_dirs_Lesion_copy/medseg_custom100/fold_${FOLD}"
+    WORK_DIR="work_dirs_Lesion_Norm/medseg_custom100_1/fold_${FOLD}"
     
     # Eseguiamo il training sovrascrivendo i file di split e la work_dir
     # Eseguiamo il training sovrascrivendo i file di split e la work_dir
