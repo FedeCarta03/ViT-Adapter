@@ -8,43 +8,47 @@ custom_imports = dict(imports=['custom_dice', 'zNormlization'], allow_failed_imp
 
 # --- CONFIGURAZIONE DATASET ---
 dataset_type = 'SklearnMetricsDataset'
-data_root = 'data_medical/27919209/MSLesSeg3C'
+data_root = 'data_medical/27919209/MSLesSeg_FLAIR'
 
 # 2. RIMUOVIAMO LA NORMALIZZAZIONE IMAGENET
 # img_norm_cfg = dict(mean=[123.675...]) -> CANCELLATO!
 
 # 3. AGGIORNIAMO LA TRAIN PIPELINE
 train_pipeline = [
-    dict(type='LoadImageFromFile'),
-    dict(type='LoadAnnotations'),
-    dict(type='Resize', img_scale=(256, 256), keep_ratio=False),
+    # Fondamentale: Carica l'immagine fingendo sia a colori (3 canali uguali)
+    dict(type='LoadImageFromFile', color_type='color'), 
+    dict(type='LoadAnnotations', reduce_zero_label=False),
+    
+    # Manteniamo le proporzioni corrette senza distorcere l'MRI
+    dict(type='Resize', img_scale=(218, 182), keep_ratio=True), 
     dict(type='RandomFlip', prob=0.5, direction='horizontal'),
     dict(type='RandomFlip', prob=0.5, direction='vertical'),
     dict(type='RandomRotate', prob=0.5, degree=15, pad_val=0, seg_pad_val=255),
     
-    # LA NUOVA NORMALIZZAZIONE MEDICA VA QUI!
+    # LA TUA Z-NORM E' SALVA E RIMANE QUI
     dict(type='MRILocalZNormalize', clip_values=True),
     
-    dict(type='Pad', size=(256, 256), pad_val=0, seg_pad_val=255),
+    # Riempie i bordi di nero
+    dict(type='Pad', size=(256, 256), pad_val=0, seg_pad_val=255), 
+    
     dict(type='DefaultFormatBundle'),
     dict(type='Collect', keys=['img', 'gt_semantic_seg']),
 ]
 
-# 4. AGGIORNIAMO LA TEST PIPELINE
 test_pipeline = [
-    dict(type='LoadImageFromFile'),
+    dict(type='LoadImageFromFile', color_type='color'), # 3 canali anche in test!
     dict(
         type='MultiScaleFlipAug',
-        img_scale=(256, 256),
+        img_scale=(218, 182), 
         flip=False,
         transforms=[
             dict(type='Resize', keep_ratio=True),
             dict(type='RandomFlip'),
             
-            # LA NUOVA NORMALIZZAZIONE MEDICA VA ANCHE QUI!
+            # LA TUA Z-NORM ANCHE QUI
             dict(type='MRILocalZNormalize', clip_values=True),
             
-            dict(type='Pad', size_divisor=32, pad_val=0, seg_pad_val=255),
+            dict(type='Pad', size=(256, 256), pad_val=0, seg_pad_val=255), 
             dict(type='ImageToTensor', keys=['img']),
             dict(type='Collect', keys=['img']),
         ])
@@ -61,9 +65,9 @@ data = dict(
     train=dict(
         type=dataset_type,
         data_root=data_root,
-        img_dir='images100',
-        ann_dir='masks_fix100',
-        split='fold100/fold_1/train.txt',
+        img_dir='images',
+        ann_dir='masks_fix',
+        split='fold/fold_1/train.txt',
         img_suffix='.png',      # Cerca i PNG
         seg_map_suffix='.png',  # Maschere PNG
         pipeline=train_pipeline,
@@ -73,9 +77,9 @@ data = dict(
     val=dict(
         type=dataset_type,
         data_root=data_root,
-        img_dir='images100',
-        ann_dir='masks_fix100',
-        split='fold100/fold_1/val.txt',
+        img_dir='images',
+        ann_dir='masks_fix',
+        split='fold/fold_1/val.txt',
         img_suffix='.png',
         seg_map_suffix='.png',
         pipeline=test_pipeline,
@@ -85,8 +89,8 @@ data = dict(
     test=dict(
         type=dataset_type,
         data_root=data_root,
-        img_dir='images100',
-        ann_dir='masks_fix100',
+        img_dir='images',
+        ann_dir='masks_fix',
         img_suffix='.png',
         seg_map_suffix='.png',
         pipeline=test_pipeline,
@@ -101,32 +105,64 @@ norm_cfg = dict(type='GN', num_groups=32, requires_grad=True)
 
 model = dict(
     decode_head=dict(
-        num_classes=2,      # 2 classi: sfondo + lesione
-        norm_cfg=norm_cfg,  # Usa Group Norm
+        num_classes=2,      
+        norm_cfg=norm_cfg,  
         loss_decode=[
-            dict(type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0, class_weight=[0.1, 0.9]),
-            dict(type='CustomDiceLoss', loss_weight=3.0, class_weight=[0.0, 1.0]) # Il peso 3 forza il modello a cercare la lesione
+            # Pesi neutri: la Cross Entropy non deve sbilanciare nulla
+            dict(type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0, class_weight=[1.0, 10.0]),
+            # La Dice Loss pensa alle forme
+            dict(type='CustomDiceLoss', loss_weight=1.0, class_weight=[1.0, 10.0]) 
         ]
-    
     ),
     auxiliary_head=dict(
         num_classes=2,
-        norm_cfg=norm_cfg,   # Usa Group Norm
+        norm_cfg=norm_cfg,   
         loss_decode=[
-            dict(type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0, class_weight=[0.1, 0.9]),
-            dict(type='CustomDiceLoss', loss_weight=3.0, class_weight=[0.0, 1.0]) # Il peso 3 forza il modello a cercare la lesione
+            # Pesi neutri: la Cross Entropy non deve sbilanciare nulla
+            dict(type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0, class_weight=[1.0, 10.0]),
+            # La Dice Loss pensa alle forme
+            dict(type='CustomDiceLoss', loss_weight=1.0, class_weight=[1.0, 10.0]) 
         ]
     )
 )
 
 # --- IMPOSTAZIONI RUNNER ---
 # Training più breve (20k iterazioni invece di 160k)
-runner = dict(type='IterBasedRunner', max_iters=20000)
-checkpoint_config = dict(by_epoch=False, interval=2000) # Salva ogni 2000 iters
-evaluation = dict(interval=2000, metric='mIoU') # Valuta ogni 2000 iters
+runner = dict(type='IterBasedRunner', max_iters=40000)
+checkpoint_config = dict(by_epoch=False, interval=1000) # Salva ogni 2000 iters
+evaluation = dict(interval=1000, metric='mIoU') # Valuta ogni 2000 iters
 
 log_config = dict(
     interval=200,
     hooks=[
         dict(type='TextLoggerHook', by_epoch=False),
     ])
+
+# --- OTTIMIZZATORE E LEARNING RATE (SOVRASCRITTURA) ---
+# Usiamo AdamW. Abbassato ma non troppo (6e-5 invece di 1e-5) per 
+# compensare l'accumulo dei gradienti e le 20k iterazioni.
+optimizer = dict(
+    type='AdamW', 
+    lr=1e-4,  
+    weight_decay=0.01
+)
+
+# Configurazione base per non far esplodere i gradienti
+optimizer_config = dict(
+    type='GradientCumulativeOptimizerHook', 
+    cumulative_iters=8, 
+    grad_clip=dict(max_norm=1.0, norm_type=2)
+)
+
+# --- POLICY DEL LEARNING RATE ---
+# Invece di tenere il LR fisso, lo facciamo scendere gradualmente 
+# verso lo zero (policy 'poly') man mano che si avvicina a 20.000 iterazioni.
+lr_config = dict(
+    policy='poly',
+    warmup='linear',
+    warmup_iters=3000, # Alzato da 1500 a 3000 iterazioni di riscaldamento
+    warmup_ratio=1e-6,
+    power=0.9,
+    min_lr=1e-6,
+    by_epoch=False
+)
