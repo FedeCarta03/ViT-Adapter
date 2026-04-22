@@ -11,7 +11,7 @@ do
     echo "=========================================================="
     
     # Cartella dove verranno salvati i pesi e i log di questo fold
-    WORK_DIR="work_dirs_Lesion_Norm/medseg_custom100_1/fold_${FOLD}"
+    WORK_DIR="work_dirs_Lesion_Norm/medseg_custom100_2/fold_${FOLD}"
     
     # Eseguiamo il training sovrascrivendo i file di split e la work_dir
     # Eseguiamo il training sovrascrivendo i file di split e la work_dir
